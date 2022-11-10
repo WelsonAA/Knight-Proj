@@ -8,6 +8,6 @@ int main() {
     n1.next[0]=n3;
     cout<<*(n1.next[0]);
     KnightTree k1(n1.data);
-    k1.addNodes(*(k1.Original));
+    k1.addNodes();
     cout<<*(k1.Original->next[0]);
 }

@@ -6,16 +6,18 @@ using namespace std;
 KnightTree::KnightTree(string data) {
     this->Original=new(nothrow) Node(data);
     size=1;
-    level=1;
+    level=0;
 }
-void KnightTree::addNodes(Node parent) {
+void KnightTree::addNodes() {
     ++level;
-    size+=8;
+    size+=pow(8,level);
     for(int i=0;i<8;i++){
-        parent.next[i]=(new Node(to_string(parent.data[0]+this->xMoves[i])));
-        parent.next[i]=(new Node(to_string(parent.data[1]+this->yMoves[i])));
+        char temp[2];
+        temp[0]=this->Original->data[0]+this->xMoves[i];
+        temp[1]=this->Original->data[1]+this->yMoves[i];
+        string str(temp);
+        this->Original->next[i]=new Node(temp);  //b4 --> d5
     }
-
 }
 
 ostream &operator<<(ostream &out, const KnightTree &aTree) {

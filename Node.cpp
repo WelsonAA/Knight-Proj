@@ -13,7 +13,11 @@ const string &Node::getData() const {
     return data;
 }
 
-Node::Node(const string &data) : data(data) {}
+Node::Node(const string &data) : data(data) {
+    for(int i=0;i<8;i++){
+        this->next[i]=NULL;
+    }
+}
 
 void Node::setData(const string &data) {
     Node::data = data;
