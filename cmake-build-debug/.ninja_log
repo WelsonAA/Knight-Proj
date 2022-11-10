@@ -1,0 +1,6 @@
+# ninja log v5
+0	480	6896440622927489	CMakeFiles/Knight_Proj.dir/main.cpp.obj	97ec4fd6aea81f3a
+5	537	6896440623497626	CMakeFiles/Knight_Proj.dir/KnightTree.cpp.obj	c185735b968c0e01
+537	651	6896440624617000	Knight_Proj.exe	17d9ced2d0472cdf
+7	502	6896457609804599	CMakeFiles/Knight_Proj.dir/Node.cpp.obj	94fcfc4c3a6dde06
+2	532	6896457610104678	CMakeFiles/Knight_Proj.dir/main.cpp.obj	97ec4fd6aea81f3a
