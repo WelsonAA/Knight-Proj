@@ -9,7 +9,7 @@ KnightTree::KnightTree(string data) {
 }
 void KnightTree::addNodes(Node parent) {
     for(int i=0;i<8;i++){
-        parent.next[i]+i=parent.getData()[0]+this->xMoves[i];
-        parent.next[i]->data=parent.data[1]+this->yMoves[i];
+        parent.next[i]=(new Node(to_string(parent.data[0]+this->xMoves[i])));
+        parent.next[i]=(new Node(to_string(parent.data[1]+this->yMoves[i])));
     }
 }

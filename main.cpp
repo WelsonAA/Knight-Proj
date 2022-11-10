@@ -2,9 +2,9 @@
 #include "KnightTree.h"
 using namespace std;
 int main() {
-    KnightTree k1("d5");
-    k1.addNodes(*(k1.Original));
-    for(int i=0;i<8;i++){
-        cout<<k1.Original->getNext()+i<<endl;
-    }
+    Node n1("b4");
+    Node n2("c5");
+    NodePointer n3=&n2;
+    n1.next[0]=n3;
+    cout<<*(n1.next[0]);
 }

@@ -8,23 +8,15 @@ using namespace std;
 #include <string>
 class Node {
 public:
-    explicit Node(const string &data);
-
-    void display();
-
-    const string &getData() const;
-
-    Node *const *getNext() const;
     Node* next[8];
-private:
     string data;
-
+public:
+    explicit Node(const string &data);
+    void display();
+    const string &getData() const;
+    void setData(const string &data);
 };
 ostream& operator<<(ostream& out, const Node& aNode);
-
-Node *const *Node::getNext() const {
-    return next;
-}
 
 typedef Node* NodePointer;
 #endif //KNIGHT_PROJ_NODE_H
