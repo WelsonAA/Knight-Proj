@@ -1,14 +1,17 @@
 //
 // Created by George Welson on 08-Nov-22.
 //
-#include "KnightTree.h"
+#include "ChessBoard.h"
 using namespace std;
-KnightTree::KnightTree(string data) {
+ChessBoard::ChessBoard(string data) {
     this->Original=new(nothrow) Node(data);
+    this->src.first=data[0];
+    this->src.second=data[1];
     size=1;
     level=0;
+    cb.at(0).at(0);
 }
-void KnightTree::addNodes() {//if level =b create level b+1
+void ChessBoard::addNodes() {//if level =b create level b+1
     ++level;
     size+=pow(8,level);
     NodePointer ptr=NULL;
@@ -46,7 +49,7 @@ void KnightTree::addNodes() {//if level =b create level b+1
     }
 }
 
-ostream &operator<<(ostream &out, const KnightTree &aTree) {
+ostream &operator<<(ostream &out, const ChessBoard &aTree) {
     out<<"Starting Position: "<<aTree.Original<<endl;
     out<<"Level 1 Nodes: "<<endl;
     for(int i=0;i<8;i++){

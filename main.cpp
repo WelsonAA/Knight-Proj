@@ -1,13 +1,11 @@
 #include <iostream>
-#include "KnightTree.h"
+#include "ChessBoard.h"
 using namespace std;
 int main() {
-    Node n1("a6");
-    KnightTree k1(n1.data);
+    Node n1("d4");
+    ChessBoard k1(n1.data);
     k1.addNodes();
     cout << *(k1.Original);
-
-
 }
 /*
 #include <iostream>
