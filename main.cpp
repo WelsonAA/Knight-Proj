@@ -2,11 +2,12 @@
 #include "KnightTree.h"
 using namespace std;
 int main() {
-    Node n1("h8");
-    //cout<<*(n1.next[0]);
+    Node n1("a6");
     KnightTree k1(n1.data);
     k1.addNodes();
-    cout<<*(k1.Original->next[0]);
+    cout << *(k1.Original);
+
+
 }
 /*
 #include <iostream>

@@ -16,7 +16,7 @@ void KnightTree::addNodes() {//if level =b create level b+1
         char temp[2];
         temp[0]=this->Original->data[0]+this->xMoves[i];
         temp[1]=this->Original->data[1]+this->yMoves[i];
-        if(temp[0]<'a'||temp[0]>'h'||temp[1]<'0'||temp[1]>'8')
+        if(temp[0]<'a'||temp[0]>'h'||temp[1]<'1'||temp[1]>'8')
             continue;
         string str(temp);
         this->Original->next[i]=new Node(temp);  //b4 --> d5
@@ -34,6 +34,14 @@ void KnightTree::addNodes() {//if level =b create level b+1
             for(int j=i;j<7;j++){
                 this->Original->next[j] = this->Original->next[j + 1];
             }
+        }
+    }
+    for(int i=1;i<8;i++){
+        if(this->Original->next[i]==this->Original->next[i-1]){
+            for(int j=i;j<8;j++) {
+                this->Original->next[j] = NULL;
+            }
+            break;
         }
     }
 }

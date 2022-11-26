@@ -25,5 +25,10 @@ void Node::setData(const string &data) {
 
 
 ostream &operator<<(ostream &out, const Node &aNode) {
-    out<<aNode.getData()<<endl;
+    //out<<aNode.getData()<<endl;
+    for(int i=0;i<8;i++){
+        if(aNode.next[i]==NULL)
+            break;
+        out << aNode.next[i]->getData() << endl;
+    }
 }
