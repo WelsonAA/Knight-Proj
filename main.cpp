@@ -1,7 +1,9 @@
 #include <iostream>
-#include "ChessBoard.h"
+#include "ChessB.h"
 using namespace std;
 int main() {
+    ChessB x;
+    x.addNexts();
     /*Node n1("d4");
     ChessBoard k1(n1.data);
     k1.addNodes();

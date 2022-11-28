@@ -7,6 +7,9 @@ NNode::NNode(string name):pos(name),visited(false){
         this->next[i]=NULL;
     //this->defNext();
 }
+NNode::NNode(){
+
+}
 /*void NNode::defNext(){
      for(int i=0;i<8;i++) {//b3 NULL c2
          char temp[2];

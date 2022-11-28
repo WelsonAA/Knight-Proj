@@ -3,4 +3,4 @@ project(Knight_Proj)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(Knight_Proj main.cpp ChessBoard.h ChessBoard.cpp Node.h Node.cpp)
+add_executable(Knight_Proj main.cpp ChessBoard.h ChessBoard.cpp Node.h Node.cpp ChessB.h ChessB.cpp NNode.h NNode.cpp)

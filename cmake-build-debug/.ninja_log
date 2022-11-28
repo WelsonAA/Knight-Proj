@@ -1,7 +1,9 @@
 # ninja log v5
-2	617	6911919048177255	CMakeFiles/Knight_Proj.dir/main.cpp.obj	97ec4fd6aea81f3a
+2	514	6913614034543200	CMakeFiles/Knight_Proj.dir/main.cpp.obj	97ec4fd6aea81f3a
 5	595	6911908714477113	CMakeFiles/Knight_Proj.dir/KnightTree.cpp.obj	c185735b968c0e01
-635	777	6911919049737606	Knight_Proj.exe	587690174ba97932
+516	674	6913615270328534	Knight_Proj.exe	8feadac55393d66e
 6	479	6911831488337405	CMakeFiles/Knight_Proj.dir/Node.cpp.obj	94fcfc4c3a6dde06
-1	133	6913419930009894	build.ninja	3f65d85428558715
-5	635	6911919048357290	CMakeFiles/Knight_Proj.dir/ChessBoard.cpp.obj	b8d1b970e9845c1e
+1	133	6913625006609058	build.ninja	3f65d85428558715
+8	711	6913586617904541	CMakeFiles/Knight_Proj.dir/ChessBoard.cpp.obj	b8d1b970e9845c1e
+2	516	6913615268782897	CMakeFiles/Knight_Proj.dir/ChessB.cpp.obj	41c08aafb4fe7433
+10	539	6913598602688269	CMakeFiles/Knight_Proj.dir/NNode.cpp.obj	26c4d1ca70be4097

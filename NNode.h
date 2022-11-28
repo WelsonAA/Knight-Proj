@@ -19,5 +19,6 @@ public:
    NodePointer next[8];
    //void defNext();
    NNode(string name);
+   NNode();
 };
 #endif //KNIGHT_PROJ_NNODE_H
