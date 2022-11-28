@@ -21,7 +21,7 @@ ChessB::ChessB() {
 }
 
 void ChessB::addNexts() {
-    for(int i= 0; i<8;i++){
+    for(int i= 0; i<8;i++){//i=7
         for(int j=0;j<8;j++){
             for (int k=0;k<8;k++){
                 char temp[2];
@@ -29,9 +29,10 @@ void ChessB::addNexts() {
                 temp[1]=this->cb[i][j].pos[1]+yMoves[k];
                 if(temp[0]<'a'||temp[0]>'h'||temp[1]<'1'||temp[1]>'8')
                     continue;
-                this->cb[i][j].next[k] = &this->cb[temp[1]][temp[0]];
+                else
+                    this->cb[i][j].next[k] = &this->cb[temp[1]][temp[0]];
             }
-            for(int l=0;l<8;l++){
+            /*for(int l=0;l<8;l++){
                 bool escape=true;
                 for(int m=l;m<8;m++){
                     if(this->cb[i][j].next[m]!=NULL) {
@@ -46,15 +47,15 @@ void ChessB::addNexts() {
                         this->cb[i][j].next[m] = this->cb[i][j].next[m + 1];
                     }
                 }
-            }
-            for(int l=1;l<8;l++){
+            }*/
+            /*for(int l=1;l<8;l++){
                 if(this->cb[i][j].next[l]==this->cb[i][j].next[l-1]){
                     for(int m=l;m<8;m++) {
                         this->cb[i][j].next[m] = NULL;
                     }
                     break;
                 }
-            }
+            }*/
         }
     }
 

@@ -2,6 +2,10 @@
 #include "ChessB.h"
 using namespace std;
 int main() {
+    string start;
+    cout<<"Enter Starting Position:\n";
+    getline(cin,start);
+
     ChessB x;
     x.addNexts();
     /*Node n1("d4");
