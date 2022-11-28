@@ -14,7 +14,6 @@ ChessBoard::ChessBoard(string data) {
 void ChessBoard::addNodes() {//if level =b create level b+1
     ++level;
     size+=pow(8,level);
-    NodePointer ptr=NULL;
     for(int i=0;i<8;i++){//b3 NULL c2
         char temp[2];
         temp[0]=this->Original->data[0]+this->xMoves[i];

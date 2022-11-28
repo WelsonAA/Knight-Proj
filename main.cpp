@@ -2,10 +2,10 @@
 #include "ChessBoard.h"
 using namespace std;
 int main() {
-    Node n1("d4");
+    /*Node n1("d4");
     ChessBoard k1(n1.data);
     k1.addNodes();
-    cout << *(k1.Original);
+    cout << *(k1.Original);*/
 }
 /*
 #include <iostream>
