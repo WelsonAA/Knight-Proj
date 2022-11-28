@@ -10,6 +10,23 @@ NNode::NNode(string name):pos(name),visited(false){
 NNode::NNode(){
 
 }
+
+void NNode::display(ostream &out) const {
+    out<<"Node Position: "<<this->pos<<endl;
+    out<<"Next Nodes:\n";
+    for(int i=0;i<8;i++){
+        if(this->next[i]==NULL)
+            continue;
+        else
+            out<<this->next[i]->pos<<endl;
+    }
+}
+
+ostream & operator<< (ostream & out, const NNode & aNode)
+{
+    aNode.display(out);
+    return out;
+}
 /*void NNode::defNext(){
      for(int i=0;i<8;i++) {//b3 NULL c2
          char temp[2];

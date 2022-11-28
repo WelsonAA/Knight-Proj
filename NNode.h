@@ -5,7 +5,7 @@
 #ifndef KNIGHT_PROJ_NNODE_H
 #define KNIGHT_PROJ_NNODE_H
 
-
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -20,5 +20,7 @@ public:
    //void defNext();
    NNode(string name);
    NNode();
+   void display(ostream & out) const;
 };
+ostream & operator<< (ostream & out, const NNode & aQueue);
 #endif //KNIGHT_PROJ_NNODE_H

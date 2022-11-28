@@ -2,12 +2,12 @@
 #include "ChessB.h"
 using namespace std;
 int main() {
-    string start;
+    /*string start;
     cout<<"Enter Starting Position:\n";
-    getline(cin,start);
-
+    getline(cin,start);*/
     ChessB x;
     x.addNexts();
+    cout<<x.cb[0][0];
     /*Node n1("d4");
     ChessBoard k1(n1.data);
     k1.addNodes();
