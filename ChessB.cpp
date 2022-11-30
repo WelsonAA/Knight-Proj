@@ -30,7 +30,7 @@ void ChessB::addNexts() {
                 if(temp[0]<'a'||temp[0]>'h'||temp[1]<'1'||temp[1]>'8')
                     continue;
                 else
-                    this->cb[i][j].next[k] = &this->cb[temp[1]][temp[0]];
+                    this->cb[i][j].next[k] = &this->cb[temp[1]-'1'][temp[0]-'a'];
             }
             /*for(int l=0;l<8;l++){
                 bool escape=true;
