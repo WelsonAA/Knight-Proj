@@ -19,6 +19,7 @@ class ChessB{
 public:
     vector<vector<NNode>> cb;
     ChessB();
+    bool isValid(char str[],int s=2);
     void addNexts();
 };
 #endif

@@ -19,39 +19,60 @@ ChessB::ChessB() {
         cb.push_back(v);
     }
 }
-
+bool ChessB::isValid(char str[],int s) {
+    if(str[0]<'a'||str[0]>'h'||str[1]<'1'||str[1]>'8')
+        return false;
+    else
+        return true;
+}
 void ChessB::addNexts() {
     for(int i= 0; i<8;i++){//i=7
         for(int j=0;j<8;j++){
             for (int k=0;k<8;k++){
                 char temp[2];
-                temp[0]=this->cb[i][j].pos[0]+xMoves[k];
-                temp[1]=this->cb[i][j].pos[1]+yMoves[k];
-                if(temp[0]<'a'||temp[0]>'h'||temp[1]<'1'||temp[1]>'8')
+                temp[0]= this->cb[i][j].pos[0] + xMovesK[k];
+                temp[1]= this->cb[i][j].pos[1] + yMovesK[k];
+                if(!(isValid(temp)))
                     continue;
                 else
-                    this->cb[i][j].next[k] = &this->cb[temp[1]-'1'][temp[0]-'a'];
+                    this->cb[i][j].nextK[k] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+
+            }
+            int y=0;
+            for (int k=0;k<28;k++){
+                char temp[2];
+                temp[0]= this->cb[i][j].pos[0] + xMovesB[k];
+                temp[1]= this->cb[i][j].pos[1] + yMovesB[k];
+                if(!(isValid(temp))) {
+                    continue;
+                }
+                else {
+                    this->cb[i][j].nextB[y] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+                    y++;
+                }
+                if(y>13)
+                    break;
             }
             /*for(int l=0;l<8;l++){
                 bool escape=true;
                 for(int m=l;m<8;m++){
-                    if(this->cb[i][j].next[m]!=NULL) {
+                    if(this->cb[i][j].nextK[m]!=NULL) {
                         escape = false;
                         break;
                     }
                 }
                 if(escape==true)
                     break;
-                while(this->cb[i][j].next[i]==NULL){
+                while(this->cb[i][j].nextK[i]==NULL){
                     for(int m=l;m<7;m++){
-                        this->cb[i][j].next[m] = this->cb[i][j].next[m + 1];
+                        this->cb[i][j].nextK[m] = this->cb[i][j].nextK[m + 1];
                     }
                 }
             }*/
             /*for(int l=1;l<8;l++){
-                if(this->cb[i][j].next[l]==this->cb[i][j].next[l-1]){
+                if(this->cb[i][j].nextK[l]==this->cb[i][j].nextK[l-1]){
                     for(int m=l;m<8;m++) {
-                        this->cb[i][j].next[m] = NULL;
+                        this->cb[i][j].nextK[m] = NULL;
                     }
                     break;
                 }

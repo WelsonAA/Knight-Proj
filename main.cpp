@@ -7,9 +7,8 @@ int main() {
     getline(cin,start);*/
     ChessB x;
     x.addNexts();
-    NNode* bnnn=new NNode("b4");
-    bnnn->next[0]=&x.cb[1][1];
-    cout<<x.cb[0][0];
+    cout<<x.cb[5][6];
+
     /*Node n1("d4");
     ChessBoard k1(n1.data);
     k1.addNodes();
