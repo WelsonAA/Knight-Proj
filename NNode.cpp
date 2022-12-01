@@ -6,7 +6,9 @@ NNode::NNode(string name):pos(name),visited(false){
     for(int i=0;i<8;i++)
         this->nextK[i]=NULL;
     for(int i=0;i<13;i++)
-        this->nextK[i]=NULL;
+        this->nextB[i]=NULL;
+    for(int i=0;i<2;i++)
+        this->nextP[i]=NULL;
 }
 NNode::NNode(){
 
