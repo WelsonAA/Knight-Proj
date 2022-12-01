@@ -3,7 +3,7 @@
 5	595	6911908714477113	CMakeFiles/Knight_Proj.dir/KnightTree.cpp.obj	c185735b968c0e01
 516	674	6913615270328534	Knight_Proj.exe	8feadac55393d66e
 6	479	6911831488337405	CMakeFiles/Knight_Proj.dir/Node.cpp.obj	94fcfc4c3a6dde06
-1	133	6916043836493547	build.ninja	3f65d85428558715
+1	133	6916045139833343	build.ninja	3f65d85428558715
 8	711	6913586617904541	CMakeFiles/Knight_Proj.dir/ChessBoard.cpp.obj	b8d1b970e9845c1e
 2	516	6913615268782897	CMakeFiles/Knight_Proj.dir/ChessB.cpp.obj	41c08aafb4fe7433
 10	539	6913598602688269	CMakeFiles/Knight_Proj.dir/NNode.cpp.obj	26c4d1ca70be4097

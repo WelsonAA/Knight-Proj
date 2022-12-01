@@ -1,8 +1,8 @@
 //
 // Created by George Welson on 28-Nov-22.
 //
-#include "NNode.h"
-NNode::NNode(string name):pos(name),visited(false){
+#include "Node.h"
+Node::Node(string name): pos(name), visited(false){
     for(int i=0;i<8;i++)
         this->nextK[i]=NULL;
     for(int i=0;i<13;i++)
@@ -10,11 +10,11 @@ NNode::NNode(string name):pos(name),visited(false){
     for(int i=0;i<2;i++)
         this->nextP[i]=NULL;
 }
-NNode::NNode(){
+Node::Node(){
 
 }
 
-void NNode::display(ostream &out) const {
+void Node::display(ostream &out) const {
     out<<"Node Position: "<<this->pos<<endl;
     out<<"Next Nodes for White Knight:\n";
     for(int i=0;i<8;i++){
@@ -40,7 +40,7 @@ void NNode::display(ostream &out) const {
 }
 
 
-ostream & operator<< (ostream & out, const NNode & aNode)
+ostream & operator<< (ostream & out, const Node & aNode)
 {
     aNode.display(out);
     return out;

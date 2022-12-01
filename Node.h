@@ -2,8 +2,8 @@
 // Created by George Welson on 28-Nov-22.
 //
 
-#ifndef KNIGHT_PROJ_NNODE_H
-#define KNIGHT_PROJ_NNODE_H
+#ifndef KNIGHT_PROJ_NODE_H
+#define KNIGHT_PROJ_NODE_H
 
 #include <iostream>
 #include <string>
@@ -15,8 +15,8 @@ const int xMovesB[] = {1,2,3,4,5,6,7,-1,-2,-3,-4,-5,-6,-7, 1, 2, 3, 4, 5, 6, 7,-
 const int yMovesB[] = {1,2,3,4,5,6,7,-1,-2,-3,-4,-5,-6,-7,-1,-2,-3,-4,-5,-6,-7, 1, 2, 3, 4, 5, 6, 7};
 const int xMovesP[] = {-1, 1};
 const int yMovesP[] = {-1,-1};
-class NNode{
-    typedef NNode* NodePointer;
+class Node{
+    typedef Node* NodePointer;
 public:
    bool visited;
    string pos;
@@ -24,9 +24,9 @@ public:
    NodePointer nextB[13];
    NodePointer nextP[2];
    //void defNext();
-   NNode(string name);
-   NNode();
+   Node(string name);
+   Node();
    void display(ostream & out) const;
 };
-ostream & operator<< (ostream & out, const NNode & aQueue);
-#endif //KNIGHT_PROJ_NNODE_H
+ostream & operator<< (ostream & out, const Node & aQueue);
+#endif //KNIGHT_PROJ_NODE_H

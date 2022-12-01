@@ -61,8 +61,8 @@ build CMakeFiles/Knight_Proj.dir/ChessB.cpp.obj: CXX_COMPILER__Knight_Proj_Debug
   OBJECT_DIR = CMakeFiles\Knight_Proj.dir
   OBJECT_FILE_DIR = CMakeFiles\Knight_Proj.dir
 
-build CMakeFiles/Knight_Proj.dir/NNode.cpp.obj: CXX_COMPILER__Knight_Proj_Debug E$:/ASU5/Knight_Proj/NNode.cpp || cmake_object_order_depends_target_Knight_Proj
-  DEP_FILE = CMakeFiles\Knight_Proj.dir\NNode.cpp.obj.d
+build CMakeFiles/Knight_Proj.dir/Node.cpp.obj: CXX_COMPILER__Knight_Proj_Debug E$:/ASU5/Knight_Proj/Node.cpp || cmake_object_order_depends_target_Knight_Proj
+  DEP_FILE = CMakeFiles\Knight_Proj.dir\Node.cpp.obj.d
   FLAGS = -g -std=gnu++23
   OBJECT_DIR = CMakeFiles\Knight_Proj.dir
   OBJECT_FILE_DIR = CMakeFiles\Knight_Proj.dir
@@ -75,7 +75,7 @@ build CMakeFiles/Knight_Proj.dir/NNode.cpp.obj: CXX_COMPILER__Knight_Proj_Debug 
 #############################################
 # Link the executable Knight_Proj.exe
 
-build Knight_Proj.exe: CXX_EXECUTABLE_LINKER__Knight_Proj_Debug CMakeFiles/Knight_Proj.dir/main.cpp.obj CMakeFiles/Knight_Proj.dir/ChessB.cpp.obj CMakeFiles/Knight_Proj.dir/NNode.cpp.obj
+build Knight_Proj.exe: CXX_EXECUTABLE_LINKER__Knight_Proj_Debug CMakeFiles/Knight_Proj.dir/main.cpp.obj CMakeFiles/Knight_Proj.dir/ChessB.cpp.obj CMakeFiles/Knight_Proj.dir/Node.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Knight_Proj.dir

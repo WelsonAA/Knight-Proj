@@ -6,11 +6,11 @@
 ChessB::ChessB() {
     string temp="a1";
     for(int i= 0; i<8;i++){
-        vector<NNode>v;
+        vector<Node>v;
         for(int j=0;j<8;j++){
             temp[1] = '1'+i;
             temp[0] = 'a'+j;
-            v.push_back(NNode(temp));
+            v.push_back(Node(temp));
         }
         cb.push_back(v);
     }
