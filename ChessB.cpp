@@ -24,7 +24,6 @@ bool ChessB::isValid(char str[],int s) {
 void ChessB::addNexts() {
     for(int i= 0; i<8;i++){//i=7
         for(int j=0;j<8;j++){
-            int x=0;
             for (int k=0;k<8;k++){
                 char temp[2];
                 temp[0]= this->cb[i][j].pos[0] + xMovesK[k];
@@ -33,14 +32,10 @@ void ChessB::addNexts() {
                     continue;
                 else {
                     this->cb[i][j].nextK[k] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
-                    x++;
                 }
-                if(x>8)
-                    break;
-
             }
             int y=0;
-            for (int k=0;k<28;k++){
+            for (int k=0;k<29;k++){
                 char temp[2];
                 temp[0]= this->cb[i][j].pos[0] + xMovesB[k];
                 temp[1]= this->cb[i][j].pos[1] + yMovesB[k];
@@ -54,7 +49,16 @@ void ChessB::addNexts() {
                 if(y>13)
                     break;
             }
-
+            for(int k=0;k<3;k++){
+                char temp[2];
+                temp[0]= this->cb[i][j].pos[0] + xMovesP[k];
+                temp[1]= this->cb[i][j].pos[1] + yMovesP[k];
+                if(!(isValid(temp)))
+                    continue;
+                else {
+                    this->cb[i][j].nextP[k] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+                }
+            }
         }
     }
 
