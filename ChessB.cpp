@@ -11,10 +11,6 @@ ChessB::ChessB() {
             temp[1] = '1'+i;
             temp[0] = 'a'+j;
             v.push_back(NNode(temp));
-            /*string temp="a1";
-            cb.pu
-            cb[i][j]=new NNode();
-            */
         }
         cb.push_back(v);
     }
@@ -28,14 +24,19 @@ bool ChessB::isValid(char str[],int s) {
 void ChessB::addNexts() {
     for(int i= 0; i<8;i++){//i=7
         for(int j=0;j<8;j++){
+            int x=0;
             for (int k=0;k<8;k++){
                 char temp[2];
                 temp[0]= this->cb[i][j].pos[0] + xMovesK[k];
                 temp[1]= this->cb[i][j].pos[1] + yMovesK[k];
                 if(!(isValid(temp)))
                     continue;
-                else
+                else {
                     this->cb[i][j].nextK[k] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+                    x++;
+                }
+                if(x>8)
+                    break;
 
             }
             int y=0;
@@ -53,30 +54,7 @@ void ChessB::addNexts() {
                 if(y>13)
                     break;
             }
-            /*for(int l=0;l<8;l++){
-                bool escape=true;
-                for(int m=l;m<8;m++){
-                    if(this->cb[i][j].nextK[m]!=NULL) {
-                        escape = false;
-                        break;
-                    }
-                }
-                if(escape==true)
-                    break;
-                while(this->cb[i][j].nextK[i]==NULL){
-                    for(int m=l;m<7;m++){
-                        this->cb[i][j].nextK[m] = this->cb[i][j].nextK[m + 1];
-                    }
-                }
-            }*/
-            /*for(int l=1;l<8;l++){
-                if(this->cb[i][j].nextK[l]==this->cb[i][j].nextK[l-1]){
-                    for(int m=l;m<8;m++) {
-                        this->cb[i][j].nextK[m] = NULL;
-                    }
-                    break;
-                }
-            }*/
+
         }
     }
 
