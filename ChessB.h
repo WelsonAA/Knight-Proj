@@ -18,8 +18,11 @@ using namespace std;
 class ChessB{
 public:
     vector<vector<Node>> cb;
-    ChessB();
+    string src;
+    string dest;
+    ChessB(string src,string dest);
     bool isValid(char str[],int s=2);
     void addNexts();
+    bool BFS();
 };
 #endif

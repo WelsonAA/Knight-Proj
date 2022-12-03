@@ -20,6 +20,7 @@ class Node{
 public:
    bool visited;
    string pos;
+
    NodePointer nextK[8];
    NodePointer nextB[13];
    NodePointer nextP[2];
