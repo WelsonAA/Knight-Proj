@@ -5,6 +5,7 @@ int main() {
 
     ChessB x("d1","f2");
     x.addNexts();
-    cout<<x.cb[1][1];
+    cout<<x.cb[0][0];
+    x.printNode("d2");
 
 }

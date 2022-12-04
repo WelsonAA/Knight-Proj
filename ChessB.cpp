@@ -110,3 +110,7 @@ void ChessB::addPawn(int i, int j) {
         }
     }
 
+void ChessB::printNode(string str) {
+    cout<< this->cb[str[1] - '1'][str[0] - 'a'];
+}
+
