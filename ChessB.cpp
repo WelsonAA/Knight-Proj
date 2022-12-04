@@ -57,6 +57,7 @@ void ChessB::addNexts() {
   it's implemented using the xMovesK and yMovesK which is the positions the knight can move to
  */
 void ChessB::addKnight(int i, int j) {
+    int y=0;
     for (int k=0;k<8;k++){
         char temp[2];
         temp[0]= this->cb[i][j].pos[0] + xMovesK[k];
@@ -64,7 +65,8 @@ void ChessB::addKnight(int i, int j) {
         if(!(isValid(temp)))
             continue;
         else {
-            this->cb[i][j].nextK[k] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+            this->cb[i][j].nextK[y] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+            y++;
         }
     }
 }
@@ -73,7 +75,7 @@ void ChessB::addKnight(int i, int j) {
  it's implemented using the xMovesP and yMovesP which is the positions the pawn can move to
  */
 void ChessB::addPawn(int i, int j) {
-    for (int k = 0; k < 3; k++) {
+    for (int k = 0; k < 2; k++) {
         char temp[2];
         temp[0] = this->cb[i][j].pos[0] + xMovesP[k];
         temp[1] = this->cb[i][j].pos[1] + yMovesP[k];
