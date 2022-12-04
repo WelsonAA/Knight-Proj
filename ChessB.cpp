@@ -23,25 +23,7 @@ ChessB::ChessB(string src, string dest): src(src), dest(dest)
         cb.push_back(v);
     }
 }//f4
-bool ChessB::BFS(){
-    queue<Node*> path;
-    int i=0;
-    int cnt=0;
-    for(Node* temp = &cb[src[1] - '1'][src[0] - 'a'];i<8;temp=temp->nextK[i]){
-        if(temp==NULL) {
-            continue;
-        }
-        else if(temp->pos==dest){
-            path.push(temp);
-            temp->visited=true;
-        }
-        else{
 
-        }
-
-        i++;
-    }
-}
 /*
  4-This function is implemented to avoid the chess pieces used (knight, pawn, bishop) to go
  out of the chess board (A chess piece can't go beyond A & H, and 1 & 8)
