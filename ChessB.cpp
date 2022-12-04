@@ -44,13 +44,9 @@ bool ChessB::isValid(char str[],int s) {
 void ChessB::addNexts() {
     for(int i= 0; i<8;i++){//i=7
         for(int j=0;j<8;j++){
-
             addKnight(i,j);
-
             addBishop(i,j);
-
             addPawn(i,j);
-
             }
         }
     }

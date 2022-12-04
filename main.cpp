@@ -5,7 +5,10 @@ int main() {
 
     ChessB x("d1","f2");
     x.addNexts();
-    cout<<x.cb[0][0];
-    x.printNode("d2");
+    cout<<"Enter a position on the chess board\n";
+    string str;
+    cin>>str;
+    //cout<<x.cb[0][0];
+    x.printNode(str);
 
 }

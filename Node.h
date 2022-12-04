@@ -29,5 +29,5 @@ public:
    Node();
    void display(ostream & out) const;
 };
-ostream & operator<< (ostream & out, const Node & aQueue);
+ostream & operator<< (ostream & out, const Node & aNode);
 #endif //KNIGHT_PROJ_NODE_H

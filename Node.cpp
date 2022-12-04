@@ -3,7 +3,7 @@
 //
 #include "Node.h"
 /*
- this function initialize the nodes to null
+ this function initialize the nexts pointers of the node to null
  */
 Node::Node(string name): pos(name), visited(false){
     for(int i=0;i<8;i++)
@@ -17,7 +17,7 @@ Node::Node(){
 
 }
 /*
-
+This function formats the printing of the nodes
 
  */
 void Node::display(ostream &out) const {
