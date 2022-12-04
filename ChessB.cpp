@@ -2,13 +2,12 @@
 // Created by George Welson on 28-Nov-22.
 //
 #include "ChessB.h"
-
 #include <Queue>
 /*
  * 1- This is the constructor of the chess game which builds the 8 x 8 chess board with the nodes
  * 2- A node represent a square in the board e.g. : a1 , h8 , etc.
  * 3- A vector is used to insert all nodes into it thus implementing the idea of "Graph"
- *    which makes it easy to traverse through the board
+ *   which makes it easy to traverse through the board
  * */
 
 ChessB::ChessB(string src, string dest): src(src), dest(dest)
@@ -23,9 +22,25 @@ ChessB::ChessB(string src, string dest): src(src), dest(dest)
         }
         cb.push_back(v);
     }
-}
+}//f4
 bool ChessB::BFS(){
+    queue<Node*> path;
+    int i=0;
+    int cnt=0;
+    for(Node* temp = &cb[src[1] - '1'][src[0] - 'a'];i<8;temp=temp->nextK[i]){
+        if(temp==NULL) {
+            continue;
+        }
+        else if(temp->pos==dest){
+            path.push(temp);
+            temp->visited=true;
+        }
+        else{
 
+        }
+
+        i++;
+    }
 }
 /*
  4-This function is implemented to avoid the chess pieces used (knight, pawn, bishop) to go
@@ -40,89 +55,76 @@ bool ChessB::isValid(char str[],int s) {
 }
 
 /*
- 5-This function is used to create the nodes available for the knight to move to,
-   it was also implemented using the isValid function to make sure that the knight
-   stays in board
-             */
+ 5-This function is used to create the nodes available for the chess pieces used (knight, pawn, bishop)
+ to move to, it also implements the isValid function to make sure that the pieces stays in board
+*/
 
 void ChessB::addNexts() {
     for(int i= 0; i<8;i++){//i=7
         for(int j=0;j<8;j++){
-            for (int k=0;k<8;k++){
-                char temp[2];
-                temp[0]= this->cb[i][j].pos[0] + xMovesK[k];
-                temp[1]= this->cb[i][j].pos[1] + yMovesK[k];
-                if(!(isValid(temp)))
-                    continue;
-                else {
-                    this->cb[i][j].nextK[k] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
-                }
-            }
-            int y=0;
-            for (int k=0;k<28;k++){
-                char temp[2];
-                temp[0]= this->cb[i][j].pos[0] + xMovesB[k];
-                temp[1]= this->cb[i][j].pos[1] + yMovesB[k];
-                if(!(isValid(temp))) {
-                    continue;
-                }
-                else {
-                    this->cb[i][j].nextB[y] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
-                    y++;
-                }
-                if(y>13)
-                    break;
-            }
-            for(int k=0;k<3;k++){
-                char temp[2];
-                temp[0]= this->cb[i][j].pos[0] + xMovesP[k];
-                temp[1]= this->cb[i][j].pos[1] + yMovesP[k];
-                if(!(isValid(temp)))
-                    continue;
-                else {
-                    this->cb[i][j].nextP[k] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
-                }
+
+            addKnight(i,j);
+
+            addBishop(i,j);
+
+            addPawn(i,j);
+
             }
         }
     }
 
-
-}
 
 /*
- * 1- Bfs Algo to traverse the graph
- * */
-
-void ChessB::BFS()
-{
-    // Mark all the vertices as not visited
-    vector<bool> visited;
-    visited.resize(V,false);
-
-    // Create a queue for BFS
-    queue<int> queue;
-
-    // Mark the current node as visited and enqueue it
-    visited[s] = true;
-    queue.push()
-
-    while(!queue.empty())
-    {
-        // Dequeue a vertex from queue and print it
-        s = queue.front();
-        cout << s << " ";
-        queue.pop_front();
-
-        // Get all adjacent vertices of the dequeued
-        // vertex s. If a adjacent has not been visited,
-        // then mark it visited and enqueue it
-        for (auto adjecent: adj[s])
-        {
-            if (!visited[adjecent])
-            {
-                visited[adjecent] = true;
-                queue.push_back(adjecent);
-            }
+ addKnight is a function used to create the nodes available for the knights to move to
+  it's implemented using the xMovesK and yMovesK which is the positions the knight can move to
+ */
+void ChessB::addKnight(int i, int j) {
+    for (int k=0;k<8;k++){
+        char temp[2];
+        temp[0]= this->cb[i][j].pos[0] + xMovesK[k];
+        temp[1]= this->cb[i][j].pos[1] + yMovesK[k];
+        if(!(isValid(temp)))
+            continue;
+        else {
+            this->cb[i][j].nextK[k] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
         }
     }
 }
+/*
+ addPawn is a function used to create the nodes available for the pawn to move to
+ it's implemented using the xMovesP and yMovesP which is the positions the pawn can move to
+ */
+void ChessB::addPawn(int i, int j) {
+    for (int k = 0; k < 3; k++) {
+        char temp[2];
+        temp[0] = this->cb[i][j].pos[0] + xMovesP[k];
+        temp[1] = this->cb[i][j].pos[1] + yMovesP[k];
+        if (!(isValid(temp)))
+            continue;
+        else {
+            this->cb[i][j].nextP[k] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+        }
+    }
+}
+/*
+ addBishop is a function used to create the nodes available for the bishop to move to,
+ it's implemented using the xMovesB and yMovesB which is the positions the bishop can move to
+ */
+    void ChessB::addBishop(int i, int j) {
+        int y=0;
+        for (int k=0;k<28;k++){
+            char temp[2];
+            temp[0]= this->cb[i][j].pos[0] + xMovesB[k];
+            temp[1]= this->cb[i][j].pos[1] + yMovesB[k];
+            if(!(isValid(temp))) {
+                continue;
+            }
+            else {
+                this->cb[i][j].nextB[y] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+                y++;
+            }
+            if(y>13)
+                break;
+        }
+    }
+

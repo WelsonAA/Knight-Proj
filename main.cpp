@@ -5,7 +5,7 @@ int main() {
     /*string start;
     cout<<"Enter Starting Position:\n";
     getline(cin,start);*/
-    ChessB x;
+    ChessB x("d1","f2");
     x.addNexts();
     cout<<x.cb[1][1];
 
