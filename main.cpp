@@ -2,7 +2,6 @@
 #include "ChessB.h"
 using namespace std;
 int main() {
-
     ChessB x("d1","f2");
     x.addNexts();
     cout<<"Enter a position on the chess board\n";
@@ -10,5 +9,4 @@ int main() {
     cin>>str;
     //cout<<x.cb[0][0];
     x.printNode(str);
-
 }

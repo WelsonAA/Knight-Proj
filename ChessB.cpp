@@ -88,23 +88,23 @@ void ChessB::addPawn(int i, int j) {
  addBishop is a function used to create the nodes available for the bishop to move to,
  it's implemented using the xMovesB and yMovesB which is the positions the bishop can move to
  */
-    void ChessB::addBishop(int i, int j) {
-        int y=0;
-        for (int k=0;k<28;k++){
-            char temp[2];
-            temp[0]= this->cb[i][j].pos[0] + xMovesB[k];
-            temp[1]= this->cb[i][j].pos[1] + yMovesB[k];
-            if(!(isValid(temp))) {
-                continue;
-            }
-            else {
-                this->cb[i][j].nextB[y] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
-                y++;
-            }
-            if(y>13)
-                break;
+void ChessB::addBishop(int i, int j) {
+    int y=0;
+    for (int k=0;k<28;k++){
+        char temp[2];
+        temp[0]= this->cb[i][j].pos[0] + xMovesB[k];
+        temp[1]= this->cb[i][j].pos[1] + yMovesB[k];
+        if(!(isValid(temp))) {
+            continue;
         }
+        else {
+            this->cb[i][j].nextB[y] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+            y++;
+        }
+        if(y>13)
+            break;
     }
+}
 
 void ChessB::printNode(string str) {
     cout<< this->cb[str[1] - '1'][str[0] - 'a'];
