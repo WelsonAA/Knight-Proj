@@ -2,6 +2,9 @@
 // Created by George Welson on 28-Nov-22.
 //
 #include "Node.h"
+/*
+ this function initialize the nodes to null
+ */
 Node::Node(string name): pos(name), visited(false){
     for(int i=0;i<8;i++)
         this->nextK[i]=NULL;
@@ -13,7 +16,10 @@ Node::Node(string name): pos(name), visited(false){
 Node::Node(){
 
 }
+/*
 
+
+ */
 void Node::display(ostream &out) const {
     out<<"Node Position: "<<this->pos<<endl;
     out<<"Next Nodes for White Knight:\n";

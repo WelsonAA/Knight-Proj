@@ -22,7 +22,7 @@ ChessB::ChessB(string src, string dest): src(src), dest(dest)
         }
         cb.push_back(v);
     }
-}//f4
+}
 
 /*
  4-This function is implemented to avoid the chess pieces used (knight, pawn, bishop) to go
