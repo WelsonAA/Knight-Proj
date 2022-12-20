@@ -10,7 +10,7 @@
  *   which makes it easy to traverse through the board
  * */
 
-ChessB::ChessB(string src, string dest): src(src), dest(dest)
+ChessB::ChessB(string src, string dest)
 {
     string temp="a1";
     for(int i= 0; i<8;i++){
@@ -22,6 +22,8 @@ ChessB::ChessB(string src, string dest): src(src), dest(dest)
         }
         cb.push_back(v);
     }
+    this->src=&this->cb[src[1] - '1'][src[0] - 'a'];
+    this->dest=&this->cb[dest[1] - '1'][dest[0] - 'a'];
 }
 
 /*
@@ -66,6 +68,7 @@ void ChessB::addKnight(int i, int j) {
             continue;
         else {
             this->cb[i][j].nextK[y] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+            //this->cb[temp[1] - '1'][temp[0] - 'a'].distanceToTarget
             y++;
         }
     }
@@ -111,4 +114,26 @@ void ChessB::addBishop(int i, int j) {
 void ChessB::printNode(string str) {
     cout<< this->cb[str[1] - '1'][str[0] - 'a'];
 }
+/*
+void ChessB::addPath(Node *crt) {
+    Node* target=&this->cb[(dest[1])-'1'][dest[0]-'a'];
+    Node* start=&this->cb[(src[1])-'1'][src[0]-'a'];
+    target->distanceToTarget=0;
+    if(crt->distanceToTarget==-1)
+}*/
+
+void ChessB::addPath() {
+    dest->distanceToTarget=0;
+    Node* parent=dest;
+    Node* child=dest;
+    for(int j=1;j<=6;j++) {
+        for (int i = 0; (i < 8) && (parent->nextK[i] != NULL); i++) {
+
+            child->distanceToTarget = j;
+        }
+       // tmp=tmp->nextK[j];
+    }
+}
+
+
 

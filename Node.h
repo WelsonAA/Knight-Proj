@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <string>
-
+#include <list>
 using namespace std;
 const int xMovesK[] = {2, 1,-1,-2,-2,-1, 1, 2};
 const int yMovesK[] = {1, 2, 2, 1,-1,-2,-2,-1};
@@ -20,11 +20,10 @@ class Node{
 public:
    bool visited;
    string pos;
-
+   int distanceToTarget;
    NodePointer nextK[8];
    NodePointer nextB[13];
    NodePointer nextP[2];
-   //void defNext();
    Node(string name);
    Node();
    void display(ostream & out) const;

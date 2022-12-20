@@ -10,8 +10,8 @@ using namespace std;
 class ChessB{
 public:
     vector<vector<Node>> cb;
-    string src;
-    string dest;
+    Node* src;
+    Node* dest;
     ChessB(string src,string dest);
     bool isValid(char str[],int s=2);//Makes sure position of pieces is valid
     void addNexts();//creates pieces Nodes
@@ -19,6 +19,8 @@ public:
     void addKnight(int i, int j);//creates Knight nodes
     void addBishop(int i, int j);//creates Bishop nodes
     void addPawn(int i, int j);//creates Pawn nodes
+    void addPath();
+    //void setDistance(Node& req):
     bool BFS();
 };
 #endif
