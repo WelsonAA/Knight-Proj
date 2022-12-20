@@ -27,7 +27,7 @@ struct Node {
     }
 };*/
     int main() {
-        ChessB x("a8", "c6");
+        ChessB x("a8", "h1");
         x.addNexts();
         x.addPath(x.dest, 0);
         x.choosePath();

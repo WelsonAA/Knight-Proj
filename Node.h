@@ -18,7 +18,7 @@ const int yMovesP[] = {-1,-1};
 class Node{
 public:
    typedef Node* NodePointer;
-   bool visited;
+   bool safe;
    string pos;
    int distanceToTarget;
    NodePointer nextK[8];

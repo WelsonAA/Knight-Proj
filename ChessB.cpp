@@ -87,6 +87,7 @@ void ChessB::addPawn(int i, int j) {
             continue;
         else {
             this->cb[i][j].nextP[k] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+            this->cb[i][j].nextP[k]->safe=false;
         }
     }
 }
@@ -135,7 +136,7 @@ void ChessB::choosePath() {
     for(int j=1;((j<=6)&&(tmp!=this->dest));j++){
         Node* min=tmp->nextK[0];
         for (int i = 1; ((i < 8) && (tmp->nextK[i] != NULL)); i++) {
-            if ((tmp->nextK[i]->distanceToTarget < min->distanceToTarget)&&(isSafe(tmp)==true))
+            if ((tmp->nextK[i]->distanceToTarget < min->distanceToTarget))
                 min = tmp->nextK[i];
         }
         path.push(min);

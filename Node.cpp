@@ -5,7 +5,7 @@
 /*
  this function initialize the nexts pointers of the node to null
  */
-Node::Node(string name): pos(name), visited(false),distanceToTarget(-1){
+Node::Node(string name): pos(name), safe(true),distanceToTarget(-1){
     for(int i=0;i<8;i++)
         this->nextK[i]=NULL;
     for(int i=0;i<13;i++)
