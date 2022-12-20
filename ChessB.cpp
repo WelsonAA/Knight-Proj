@@ -115,13 +115,7 @@ void ChessB::addBishop(int i, int j) {
 void ChessB::printNode(string str) {
     cout<< this->cb[str[1] - '1'][str[0] - 'a'];
 }
-/*
-void ChessB::addPath(Node *crt) {
-    Node* target=&this->cb[(dest[1])-'1'][dest[0]-'a'];
-    Node* start=&this->cb[(src[1])-'1'][src[0]-'a'];
-    target->distanceToTarget=0;
-    if(crt->distanceToTarget==-1)
-}*/
+
 
 void ChessB::addPath(Node* crt,int steps) {
     if(steps>=6)
@@ -133,6 +127,19 @@ void ChessB::addPath(Node* crt,int steps) {
         for(int i=0;i<8&&crt->nextK[i]!=NULL;i++){
             addPath(crt->nextK[i],steps+1);
         }
+    }
+}
+
+void ChessB::choosePath() {
+    Node* tmp=src;
+    for(int j=1;((j<=6)&&(tmp!=this->dest));j++){
+        Node* min=tmp->nextK[0];
+        for (int i = 1; ((i < 8) && (tmp->nextK[i] != NULL)); i++) {
+            if ((tmp->nextK[i]->distanceToTarget < min->distanceToTarget)&&(isSafe(tmp)==true))
+                min = tmp->nextK[i];
+        }
+        path.push(min);
+        tmp=min;
     }
 }
 
