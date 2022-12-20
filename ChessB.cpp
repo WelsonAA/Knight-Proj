@@ -24,6 +24,7 @@ ChessB::ChessB(string src, string dest)
     }
     this->src=&this->cb[src[1] - '1'][src[0] - 'a'];
     this->dest=&this->cb[dest[1] - '1'][dest[0] - 'a'];
+    this->dest->distanceToTarget=0;
 }
 
 /*
@@ -122,16 +123,16 @@ void ChessB::addPath(Node *crt) {
     if(crt->distanceToTarget==-1)
 }*/
 
-void ChessB::addPath() {
-    dest->distanceToTarget=0;
-    Node* parent=dest;
-    Node* child=dest;
-    for(int j=1;j<=6;j++) {
-        for (int i = 0; (i < 8) && (parent->nextK[i] != NULL); i++) {
-
-            child->distanceToTarget = j;
+void ChessB::addPath(Node* crt,int steps) {
+    if(steps>=6)
+        return;
+    else if((crt->distanceToTarget<steps)&&(crt->distanceToTarget!=-1))
+        return;
+    else{
+        crt->distanceToTarget=steps;
+        for(int i=0;i<8&&crt->nextK[i]!=NULL;i++){
+            addPath(crt->nextK[i],steps+1);
         }
-       // tmp=tmp->nextK[j];
     }
 }
 

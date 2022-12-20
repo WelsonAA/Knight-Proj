@@ -22,13 +22,14 @@ This function formats the printing of the nodes
  */
 void Node::display(ostream &out) const {
     out<<"Node Position: "<<this->pos<<endl;
-    out<<"Next Nodes for White Knight:\n";
+    out<<"Next Nodes for Knight:\n";
     for(int i=0;i<8;i++){
         if(this->nextK[i] == NULL)
             continue;
         else
             out << this->nextK[i]->pos << endl;
     }
+    out<<"Distance to Target for a Knight:\n"<<this->distanceToTarget<<endl;
     out<<"Next Nodes for White Bishop:\n";
     for(int i=0;i<13;i++){
         if(this->nextB[i] == NULL)

@@ -16,8 +16,8 @@ const int yMovesB[] = {1,2,3,4,5,6,7,-1,-2,-3,-4,-5,-6,-7,-1,-2,-3,-4,-5,-6,-7, 
 const int xMovesP[] = {-1, 1};
 const int yMovesP[] = {-1,-1};
 class Node{
-    typedef Node* NodePointer;
 public:
+   typedef Node* NodePointer;
    bool visited;
    string pos;
    int distanceToTarget;
