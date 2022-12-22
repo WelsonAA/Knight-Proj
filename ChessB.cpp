@@ -119,7 +119,7 @@ void ChessB::printNode(string str) {
 
 
 void ChessB::addPath(Node* crt,int steps) {
-    if(steps>=6)
+    if(steps>6)
         return;
     else if((crt->distanceToTarget<steps)&&(crt->distanceToTarget!=-1))
         return;
@@ -133,8 +133,9 @@ void ChessB::addPath(Node* crt,int steps) {
 
 void ChessB::choosePath() {
     Node* tmp=src;
+    Node* min;
     for(int j=1;((j<=6)&&(tmp!=this->dest));j++){
-        Node* min=tmp->nextK[0];
+        min=tmp->nextK[0];
         for (int i = 1; ((i < 8) && (tmp->nextK[i] != NULL)); i++) {
             if ((tmp->nextK[i]->distanceToTarget < min->distanceToTarget))
                 min = tmp->nextK[i];
