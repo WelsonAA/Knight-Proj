@@ -1,0 +1,66 @@
+        -:    0:Source:E:/ASU5/Knight_Proj/Node.cpp
+        -:    0:Graph:E:\ASU5\Knight_Proj\cmake-build-debug-coverage\CMakeFiles\Knight_Proj.dir\Node.cpp.gcno
+        -:    0:Data:E:\ASU5\Knight_Proj\cmake-build-debug-coverage\CMakeFiles\Knight_Proj.dir\Node.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by George Welson on 08-Nov-22.
+        -:    3://
+        -:    4:#include <iostream>
+        -:    5:#include "Node.h"
+        -:    6:
+        -:    7:using namespace std;
+function _ZN4Node7displayEv called 0 returned 0% blocks executed 0%
+    #####:    8:void Node::display() {
+    #####:    9:    cout<<this;
+    %%%%%:    9-block  0
+call    0 never executed
+    #####:   10:}
+        -:   11:
+function _ZNK4Node7getDataB5cxx11Ev called 0 returned 0% blocks executed 0%
+    #####:   12:const string &Node::getData() const {
+    #####:   13:    return data;
+    %%%%%:   13-block  0
+        -:   14:}
+        -:   15:
+function _ZN4NodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   16:Node::Node(const string &data) : data(data) {
+    %%%%%:   16-block  0
+call    0 never executed
+    #####:   17:    for(int i=0;i<8;i++){
+    %%%%%:   17-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   18:        this->next[i]=NULL;
+    %%%%%:   18-block  0
+        -:   19:    }
+    #####:   20:}
+        -:   21:
+function _ZN4Node7setDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:   22:void Node::setData(const string &data) {
+    #####:   23:    Node::data = data;
+    %%%%%:   23-block  0
+call    0 never executed
+    #####:   24:}
+        -:   25:
+        -:   26:
+function _ZlsRSoRK4Node called 0 returned 0% blocks executed 0%
+    #####:   27:ostream &operator<<(ostream &out, const Node &aNode) {
+        -:   28:    //out<<aNode.getData()<<endl;
+    #####:   29:    for(int i=0;i<8;i++){
+    %%%%%:   29-block  0
+    %%%%%:   29-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   30:        if(aNode.next[i]==NULL)
+    %%%%%:   30-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   31:            break;
+    %%%%%:   31-block  0
+    #####:   32:        out << aNode.next[i]->getData() << endl;
+    %%%%%:   32-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+        -:   33:    }
+    #####:   34:}

@@ -1,0 +1,176 @@
+        -:    0:Source:E:/ASU5/Knight_Proj/main.cpp
+        -:    0:Graph:E:\ASU5\Knight_Proj\cmake-build-debug-coverage\CMakeFiles\Knight_Proj.dir\main.cpp.gcno
+        -:    0:Data:E:\ASU5\Knight_Proj\cmake-build-debug-coverage\CMakeFiles\Knight_Proj.dir\main.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <iostream>
+        -:    2:#include "ChessB.h"
+        -:    3:using namespace std;
+function main called 1 returned 0% blocks executed 38%
+        1:    4:int main() {
+        1:    5:    ChessB x;
+        1:    5-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:    6:    x.addNexts();
+        1:    6-block  0
+call    0 returned 0
+branch  1 taken 0 (fallthrough)
+branch  2 taken 0 (throw)
+        -:    7:    /*Node n1("d4");
+        -:    8:    ChessBoard k1(n1.data);
+        -:    9:    k1.addNodes();
+        -:   10:    cout << *(k1.Original);*/
+    #####:   11:}
+    %%%%%:   11-block  0
+call    0 never executed
+    %%%%%:   11-block  1
+    $$$$$:   11-block  2
+call    1 never executed
+        -:   12:/*
+        -:   13:#include <iostream>
+        -:   14:#include <map>
+        -:   15:#include <queue>
+        -:   16:#include <vector>
+        -:   17:#include <climits>
+        -:   18:#include <math.h>
+        -:   19:
+        -:   20:using namespace std;
+        -:   21:
+        -:   22:class ChessBoard
+        -:   23:{
+        -:   24:public:
+        -:   25:    int BoardVisited[20][20], Distance[20][20];
+        -:   26:
+        -:   27:    //x and y direction where a knight can move
+        -:   28:    int xPositions[8] = { -2, -1, 1, 2, 2, 1, -1, -2 };
+        -:   29:    int yPositions[8] = { 1, 2, 2, 1, -1, -2, -2, -1 };
+        -:   30:
+        -:   31:    //Parameterized constructer to initialize all cells of 2D Array to 0 to represent unvisited cells
+        -:   32:    ChessBoard(int N)
+        -:   33:    {
+        -:   34:        for (int i = 0; i < N; i++)
+        -:   35:        {
+        -:   36:            for (int j = 0; j < N; j++)
+        -:   37:            {
+        -:   38:                BoardVisited[i][j] = 0;
+        -:   39:            }
+        -:   40:        }
+        -:   41:    }
+        -:   42:
+        -:   43:    void knight_plays(int N, vector<int> &SourcePos, vector<int> &TargetPos)
+        -:   44:    {
+        -:   45:        //path vector stores the moves to reach destination
+        -:   46:        vector<pair<int, int>> path;
+        -:   47:        int minDistance = shortestPath(SourcePos, TargetPos, N, path);
+        -:   48:
+        -:   49:        //Print the shortest path
+        -:   50:        cout << "\nShortest distance from source to destination is: " << minDistance << endl;
+        -:   51:
+        -:   52:        path.push_back(make_pair(TargetPos[0], TargetPos[1])); //added the destination pair
+        -:   53:
+        -:   54:        //print the squares/cells leading to shortest path
+        -:   55:        cout << endl
+        -:   56:             << "The path followed to reach destination in shortest distance is: ";
+        -:   57:        for (int i = 0; i < path.size(); i++)
+        -:   58:        {
+        -:   59:            cout << "[" << path[i].first << "," << path[i].second << "], ";
+        -:   60:        }
+        -:   61:    }
+        -:   62:
+        -:   63:    //isValid is function to find whether the x and y position is a valid knight move or not
+        -:   64:    bool isValid(int x, int y, int N)
+        -:   65:    {
+        -:   66:        //returns false if (x, y) lies outside chess board or if it is already visited. Else, returns true
+        -:   67:        if (x < 0 || y < 0 || x > N || y > N || BoardVisited[x][y] == 1)
+        -:   68:            return false;
+        -:   69:
+        -:   70:        return true;
+        -:   71:    }
+        -:   72:
+        -:   73:    int shortestPath(vector<int> &SourcePos, vector<int> &TargetPos, int N, vector<pair<int, int>> &path)
+        -:   74:    {
+        -:   75:        //We use Breadth First Search and store the chess board's cell position in queue such that each element of queue has pair of x coordinate and y coordinate.
+        -:   76:        //We find adjacent valid cells for each knight's move and push it into the queue
+        -:   77:        queue<pair<int, int>> q;
+        -:   78:        int xCoordinate = SourcePos[0];
+        -:   79:        int yCoordinate = SourcePos[1];
+        -:   80:        Distance[xCoordinate][yCoordinate] = 0;
+        -:   81:
+        -:   82:        //Since source is visited, we mark it as 1 and push source into the queue
+        -:   83:        BoardVisited[xCoordinate][yCoordinate] = 1;
+        -:   84:        q.push({ xCoordinate, yCoordinate });
+        -:   85:
+        -:   86:        if (xCoordinate == TargetPos[0] && yCoordinate == TargetPos[1])
+        -:   87:            return (Distance[xCoordinate][yCoordinate]);
+        -:   88:
+        -:   89:        //path vector stores the moves to reach destination. We initiate the path_x and path_y with source coordinates.
+        -:   90:        int path_x = xCoordinate, path_y = yCoordinate;
+        -:   91:        double path_dist = INT_MAX;
+        -:   92:        path.push_back(make_pair(path_x, path_y));
+        -:   93:
+        -:   94:        while (!q.empty())
+        -:   95:        {
+        -:   96:            int curr_x = q.front().first;
+        -:   97:            int curr_y = q.front().second;
+        -:   98:            q.pop();
+        -:   99:            for (int i = 0; i < 8; i++)
+        -:  100:            {
+        -:  101:                if (isValid(curr_x + xPositions[i], curr_y + yPositions[i], N) == true)
+        -:  102:                {
+        -:  103:                    xCoordinate = curr_x + xPositions[i];
+        -:  104:                    yCoordinate = curr_y + yPositions[i];
+        -:  105:
+        -:  106:                    Distance[xCoordinate][yCoordinate] = Distance[curr_x][curr_y] + 1;
+        -:  107:
+        -:  108:                    BoardVisited[xCoordinate][yCoordinate] = 1;
+        -:  109:                    q.push({ xCoordinate, yCoordinate });
+        -:  110:
+        -:  111:                    double distanceFromDestination = calculateDistances(xCoordinate, TargetPos[0], yCoordinate, TargetPos[1]);
+        -:  112:                    if (distanceFromDestination < path_dist)
+        -:  113:                    {
+        -:  114:                        path_x = xCoordinate;
+        -:  115:                        path_y = yCoordinate;
+        -:  116:                        path_dist = distanceFromDestination;
+        -:  117:                    }
+        -:  118:
+        -:  119:                    if (xCoordinate == TargetPos[0] && yCoordinate == TargetPos[1])
+        -:  120:                        return Distance[xCoordinate][yCoordinate];
+        -:  121:                }
+        -:  122:            }
+        -:  123:            path.push_back(make_pair(path_x, path_y));
+        -:  124:        }
+        -:  125:        //if Target Position is unreachable, return -1
+        -:  126:        return -1;
+        -:  127:    }
+        -:  128:
+        -:  129:    double calculateDistances(int xi, int xj, int yi, int yj)
+        -:  130:    {
+        -:  131:        return sqrt((pow(xj - xi, 2)) + pow(yj - yi, 2));
+        -:  132:    }
+        -:  133:};
+        -:  134:
+        -:  135:int main()
+        -:  136:{
+        -:  137:    int N;
+        -:  138:    vector<int> SourcePos(2);
+        -:  139:    vector<int> TargetPos(2);
+        -:  140:
+        -:  141:    cout << "Please enter the size of board N: ";
+        -:  142:    cin >> N;
+        -:  143:
+        -:  144:    //Calling the constructor to initialize all cells as unvisited initially
+        -:  145:    ChessBoard obj(N);
+        -:  146:
+        -:  147:    cout << "\nPlease enter knight's source position:\n";
+        -:  148:    cin >> SourcePos[0];
+        -:  149:    cin >> SourcePos[1];
+        -:  150:
+        -:  151:    cout << "\nPlease enter knight's target position:\n";
+        -:  152:    cin >> TargetPos[0];
+        -:  153:    cin >> TargetPos[1];
+        -:  154:
+        -:  155:    obj.knight_plays(N, SourcePos, TargetPos);
+        -:  156:
+        -:  157:    return 0;
+        -:  158:}*/

@@ -24,7 +24,7 @@ ChessB::ChessB(string src, string dest)
     }
     this->src=&this->cb[src[1] - '1'][src[0] - 'a'];
     this->dest=&this->cb[dest[1] - '1'][dest[0] - 'a'];
-    this->dest->distanceToTarget=0;
+    this->dest->distanceToTargetK=0;
 }
 
 /*
@@ -69,7 +69,7 @@ void ChessB::addKnight(int i, int j) {
             continue;
         else {
             this->cb[i][j].nextK[y] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
-            //this->cb[temp[1] - '1'][temp[0] - 'a'].distanceToTarget
+            //this->cb[temp[1] - '1'][temp[0] - 'a'].distanceToTargetK
             y++;
         }
     }
@@ -118,30 +118,49 @@ void ChessB::printNode(string str) {
 }
 
 
-void ChessB::addPath(Node* crt,int steps) {
-    if(steps>6)
-        return;
-    else if((crt->distanceToTarget<steps)&&(crt->distanceToTarget!=-1))
-        return;
-    else{
-        crt->distanceToTarget=steps;
-        for(int i=0;i<8&&crt->nextK[i]!=NULL;i++){
-            addPath(crt->nextK[i],steps+1);
-        }
-    }
-}
 
-void ChessB::choosePath() {
+
+void ChessB::choosePathK() {
     Node* tmp=src;
     Node* min;
     for(int j=1;((j<=6)&&(tmp!=this->dest));j++){
         min=tmp->nextK[0];
         for (int i = 1; ((i < 8) && (tmp->nextK[i] != NULL)); i++) {
-            if ((tmp->nextK[i]->distanceToTarget < min->distanceToTarget))
+            if ((tmp->nextK[i]->distanceToTargetK < min->distanceToTargetK))
                 min = tmp->nextK[i];
         }
-        path.push(min);
+        pathK.push(min);
         tmp=min;
+    }
+}
+void ChessB::addPathK(Node* crt, int steps) {
+    if(steps>6)
+        return;
+    else if((crt->distanceToTargetK < steps) && (crt->distanceToTargetK != -1))
+        return;
+    else{
+        crt->distanceToTargetK=steps;
+        for(int i=0;i<8&&crt->nextK[i]!=NULL;i++){
+            addPathK(crt->nextK[i], steps + 1);
+        }
+    }
+}
+void ChessB::addPathB() {
+
+}
+
+bool ChessB::isReachableB() {
+    return src->colour==dest->colour;
+}
+
+void ChessB::choosePathB(Node *crt, int steps) {
+    if(steps>2)
+        return;
+    else{
+        crt->distanceToTargetB=steps;
+        for(int i=0;i<13&&crt->nextK[i]!=NULL;i++){
+            addPathK(crt->nextK[i], steps + 1);
+        }
     }
 }
 

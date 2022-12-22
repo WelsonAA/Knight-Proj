@@ -1,0 +1,27 @@
+# ninja log v5
+13	1303	6916041310510716	CMakeFiles/Knight_Proj.dir/NNode.cpp.obj	585291a237f5b5db
+941	1094	6934298513294803	Knight_Proj.exe	d68e4af95ebbd184
+10	521	6932666722492823	CMakeFiles/Knight_Proj.dir/Node.cpp.obj	304e0c4506326a96
+4	1918	6934181664423580	CMakeFiles/Knight_Proj.dir/main.cpp.obj	1b71b69db0e977ed
+2	941	6934298511784647	CMakeFiles/Knight_Proj.dir/ChessB.cpp.obj	c0c84604cffecd59
+3	939	6913625033453065	CMakeFiles/Knight_Proj.dir/ChessBoard.cpp.obj	f10788172a4d92f8
+2	768	6934301135339217	CMakeFiles/Knight_Proj.dir/ChessB.cpp.obj	c0c84604cffecd59
+768	904	6934301136679518	Knight_Proj.exe	d68e4af95ebbd184
+2	787	6934303020401016	CMakeFiles/Knight_Proj.dir/ChessB.cpp.obj	c0c84604cffecd59
+788	913	6934303021641293	Knight_Proj.exe	d68e4af95ebbd184
+2	783	6934309835325993	CMakeFiles/Knight_Proj.dir/ChessB.cpp.obj	c0c84604cffecd59
+783	902	6934309836496257	Knight_Proj.exe	d68e4af95ebbd184
+2	645	6934310158171126	CMakeFiles/Knight_Proj.dir/main.cpp.obj	1b71b69db0e977ed
+645	763	6934310159331391	Knight_Proj.exe	d68e4af95ebbd184
+2	632	6934313844166984	CMakeFiles/Knight_Proj.dir/main.cpp.obj	1b71b69db0e977ed
+632	749	6934313845317245	Knight_Proj.exe	d68e4af95ebbd184
+1	1039	6934314230021020	CMakeFiles/Knight_Proj.dir/main.cpp.obj	1b71b69db0e977ed
+1039	1303	6934314232625048	Knight_Proj.exe	d68e4af95ebbd184
+8	614	6934376552667052	CMakeFiles/Knight_Proj.dir/Node.cpp.obj	304e0c4506326a96
+6	726	6934376553787314	CMakeFiles/Knight_Proj.dir/main.cpp.obj	1b71b69db0e977ed
+2	862	6934376555141216	CMakeFiles/Knight_Proj.dir/ChessB.cpp.obj	c0c84604cffecd59
+862	1149	6934376557995612	Knight_Proj.exe	d68e4af95ebbd184
+10	584	6934385629326305	CMakeFiles/Knight_Proj.dir/Node.cpp.obj	304e0c4506326a96
+2	768	6934385631156488	CMakeFiles/Knight_Proj.dir/main.cpp.obj	1b71b69db0e977ed
+6	929	6934385632766851	CMakeFiles/Knight_Proj.dir/ChessB.cpp.obj	c0c84604cffecd59
+929	1077	6934385634217457	Knight_Proj.exe	d68e4af95ebbd184

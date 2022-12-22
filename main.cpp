@@ -29,8 +29,8 @@ struct Node {
     int main() {
         ChessB x("a1", "a2");
         x.addNexts();
-        x.addPath(x.dest, 0);
-        x.choosePath();
+        x.addPathK(x.dest, 0);
+        x.choosePathK();
         cout << "Enter a position on the chess board\n";
         string str;
         cin >> str;
@@ -92,7 +92,7 @@ struct Node {
 
         }
 
-        // return infinity if the path is not possible
+        // return infinity if the pathK is not possible
         return INT_MAX;
     }
 

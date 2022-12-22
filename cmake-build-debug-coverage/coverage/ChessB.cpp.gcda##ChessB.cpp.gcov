@@ -1,0 +1,227 @@
+        -:    0:Source:E:/ASU5/Knight_Proj/ChessB.cpp
+        -:    0:Graph:E:\ASU5\Knight_Proj\cmake-build-debug-coverage\CMakeFiles\Knight_Proj.dir\ChessB.cpp.gcno
+        -:    0:Data:E:\ASU5\Knight_Proj\cmake-build-debug-coverage\CMakeFiles\Knight_Proj.dir\ChessB.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by George Welson on 28-Nov-22.
+        -:    3://
+        -:    4:#include "ChessB.h"
+        -:    5:
+function _ZN6ChessBC2Ev called 1 returned 100% blocks executed 59%
+        1:    6:ChessB::ChessB() {
+        1:    6-block  0
+call    0 returned 1
+        1:    7:    string temp="a1";
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:    7-block  0
+        9:    8:    for(int i= 0; i<8;i++){
+        9:    8-block  0
+branch  0 taken 8
+branch  1 taken 1 (fallthrough)
+        8:    9:        vector<NNode>v;
+        8:    9-block  0
+call    0 returned 8
+       72:   10:        for(int j=0;j<8;j++){
+       72:   10-block  0
+branch  0 taken 64
+branch  1 taken 8 (fallthrough)
+       64:   11:            temp[1] = '1'+i;
+       64:   11-block  0
+call    0 returned 64
+branch  1 taken 64 (fallthrough)
+branch  2 taken 0 (throw)
+       64:   12:            temp[0] = 'a'+j;
+       64:   12-block  0
+call    0 returned 64
+branch  1 taken 64 (fallthrough)
+branch  2 taken 0 (throw)
+       64:   13:            v.push_back(NNode(temp));
+       64:   13-block  0
+call    0 returned 64
+branch  1 taken 64 (fallthrough)
+branch  2 taken 0 (throw)
+       64:   13-block  1
+call    3 returned 64
+branch  4 taken 64 (fallthrough)
+branch  5 taken 0 (throw)
+       64:   13-block  2
+call    6 returned 64
+branch  7 taken 64 (fallthrough)
+branch  8 taken 0 (throw)
+       64:   13-block  3
+call    9 returned 64
+call   10 returned 64
+    $$$$$:   13-block  4
+call   11 never executed
+    $$$$$:   13-block  5
+    $$$$$:   13-block  6
+call   12 never executed
+    $$$$$:   13-block  7
+        -:   14:            /*string temp="a1";
+        -:   15:            cb.pu
+        -:   16:            cb[i][j]=new NNode();
+        -:   17:            */
+        -:   18:        }
+        8:   19:        cb.push_back(v);
+        8:   19-block  0
+call    0 returned 8
+branch  1 taken 8 (fallthrough)
+branch  2 taken 0 (throw)
+        8:   20:    }
+        8:   20-block  0
+call    0 returned 8
+    $$$$$:   20-block  1
+call    1 never executed
+        1:   21:}
+        1:   21-block  0
+call    0 returned 1
+    $$$$$:   21-block  1
+call    1 never executed
+    $$$$$:   21-block  2
+call    2 never executed
+        -:   22:
+function _ZN6ChessB8addNextsEv called 1 returned 0% blocks executed 98%
+        1:   23:void ChessB::addNexts() {
+        7:   24:    for(int i= 0; i<8;i++){
+        1:   24-block  0
+        6:   24-block  1
+        7:   24-block  2
+branch  0 taken 7
+branch  1 taken 0 (fallthrough)
+       62:   25:        for(int j=0;j<8;j++){
+        7:   25-block  0
+       55:   25-block  1
+       62:   25-block  2
+branch  0 taken 56
+branch  1 taken 6 (fallthrough)
+      504:   26:            for (int k=0;k<8;k++){
+       56:   26-block  0
+      448:   26-block  1
+      504:   26-block  2
+branch  0 taken 448
+branch  1 taken 56 (fallthrough)
+        -:   27:                char temp[2];
+      448:   28:                temp[0]=this->cb[i][j].pos[0]+xMoves[k];
+      448:   28-block  0
+call    0 returned 448
+call    1 returned 448
+call    2 returned 448
+branch  3 taken 448 (fallthrough)
+branch  4 taken 0 (throw)
+      448:   29:                temp[1]=this->cb[i][j].pos[1]+yMoves[k];
+      448:   29-block  0
+call    0 returned 448
+call    1 returned 448
+call    2 returned 448
+branch  3 taken 448 (fallthrough)
+branch  4 taken 0 (throw)
+      448:   30:                if(temp[0]<'a'||temp[0]>'h'||temp[1]<'1'||temp[1]>'8')
+      448:   30-block  0
+branch  0 taken 406 (fallthrough)
+branch  1 taken 42
+      406:   30-block  1
+branch  2 taken 364 (fallthrough)
+branch  3 taken 42
+      364:   30-block  2
+branch  4 taken 324 (fallthrough)
+branch  5 taken 40
+      324:   30-block  3
+branch  6 taken 14 (fallthrough)
+branch  7 taken 310
+      138:   31:                    continue;
+      138:   31-block  0
+      310:   32:                this->cb[i][j].next[k] = &this->cb[temp[1]][temp[0]];
+      310:   32-block  0
+call    0 returned 310
+call    1 returned 310
+call    2 returned 310
+call    3 returned 310
+        -:   33:            }
+      438:   34:            for(int l=0;l<8;l++){
+       56:   34-block  0
+      382:   34-block  1
+      438:   34-block  2
+branch  0 taken 402
+branch  1 taken 36 (fallthrough)
+      402:   35:                bool escape=true;
+      597:   36:                for(int m=l;m<8;m++){
+      402:   36-block  0
+      195:   36-block  1
+      597:   36-block  2
+branch  0 taken 578
+branch  1 taken 19 (fallthrough)
+      578:   37:                    if(this->cb[i][j].next[m]!=NULL) {
+      578:   37-block  0
+call    0 returned 578
+call    1 returned 578
+branch  2 taken 383 (fallthrough)
+branch  3 taken 195
+      383:   38:                        escape = false;
+      383:   39:                        break;
+      383:   39-block  0
+        -:   40:                    }
+        -:   41:                }
+      402:   42:                if(escape==true)
+      402:   42-block  0
+branch  0 taken 19 (fallthrough)
+branch  1 taken 383
+       19:   43:                    break;
+       19:   43-block  0
+ 72572905:   44:                while(this->cb[i][j].next[i]==NULL){
+      383:   44-block  0
+ 72572905:   44-block  1
+call    0 returned 72572905
+call    1 returned 72572905
+branch  2 taken 72572523
+branch  3 taken 382 (fallthrough)
+580580181:   45:                    for(int m=l;m<7;m++){
+ 72572523:   45-block  0
+580580181:   45-block  1
+branch  0 taken 508007659
+branch  1 taken 72572522 (fallthrough)
+508007659:   46:                        this->cb[i][j].next[m] = this->cb[i][j].next[m + 1];
+508007659:   46-block  0
+call    0 returned 508007659
+call    1 returned 508007658
+call    2 returned 508007658
+call    3 returned 508007658
+        -:   47:                    }
+        -:   48:                }
+        -:   49:            }
+      239:   50:            for(int l=1;l<8;l++){
+       55:   50-block  0
+      184:   50-block  1
+      239:   50-block  2
+branch  0 taken 224
+branch  1 taken 15 (fallthrough)
+      224:   51:                if(this->cb[i][j].next[l]==this->cb[i][j].next[l-1]){
+      224:   51-block  0
+call    0 returned 224
+call    1 returned 224
+call    2 returned 224
+call    3 returned 224
+branch  4 taken 40 (fallthrough)
+branch  5 taken 184
+      241:   52:                    for(int m=l;m<8;m++) {
+       40:   52-block  0
+      241:   52-block  1
+branch  0 taken 201
+branch  1 taken 40 (fallthrough)
+      201:   53:                        this->cb[i][j].next[m] = NULL;
+      201:   53-block  0
+call    0 returned 201
+call    1 returned 201
+        -:   54:                    }
+       40:   55:                    break;
+       40:   55-block  0
+        -:   56:                }
+        -:   57:            }
+        -:   58:        }
+        -:   59:    }
+        -:   60:
+        -:   61:
+    #####:   62:}
+    %%%%%:   62-block  0

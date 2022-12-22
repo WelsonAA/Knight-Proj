@@ -1,0 +1,214 @@
+        -:    0:Source:E:/ASU5/Knight_Proj/ChessBoard.cpp
+        -:    0:Graph:E:\ASU5\Knight_Proj\cmake-build-debug-coverage\CMakeFiles\Knight_Proj.dir\ChessBoard.cpp.gcno
+        -:    0:Data:E:\ASU5\Knight_Proj\cmake-build-debug-coverage\CMakeFiles\Knight_Proj.dir\ChessBoard.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by George Welson on 08-Nov-22.
+        -:    3://
+        -:    4:#include "ChessBoard.h"
+        -:    5:using namespace std;
+function _ZN10ChessBoardC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE called 0 returned 0% blocks executed 0%
+    #####:    6:ChessBoard::ChessBoard(string data) {
+    %%%%%:    6-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:    7:    this->Original=new(nothrow) Node(data);
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:    7-block  0
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    %%%%%:    7-block  1
+    %%%%%:    7-block  2
+    $$$$$:    7-block  3
+call    6 never executed
+    #####:    8:    this->src.first=data[0];
+    %%%%%:    8-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:    9:    this->src.second=data[1];
+    %%%%%:    9-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   10:    size=1;
+    #####:   11:    level=0;
+    #####:   12:    cb.at(0).at(0);
+    %%%%%:   12-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    %%%%%:   12-block  1
+call    3 never executed
+branch  4 never executed
+branch  5 never executed
+    #####:   13:}
+    %%%%%:   13-block  0
+    $$$$$:   13-block  1
+call    0 never executed
+function _ZN10ChessBoard8addNodesEv called 0 returned 0% blocks executed 0%
+    #####:   14:void ChessBoard::addNodes() {//if level =b create level b+1
+    #####:   15:    ++level;
+    #####:   16:    size+=pow(8,level);
+    %%%%%:   16-block  0
+call    0 never executed
+    #####:   17:    for(int i=0;i<8;i++){//b3 NULL c2
+    %%%%%:   17-block  0
+    %%%%%:   17-block  1
+branch  0 never executed
+branch  1 never executed
+        -:   18:        char temp[2];
+    #####:   19:        temp[0]=this->Original->data[0]+this->xMoves[i];
+    %%%%%:   19-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   20:        temp[1]=this->Original->data[1]+this->yMoves[i];
+    %%%%%:   20-block  0
+call    0 never executed
+branch  1 never executed
+branch  2 never executed
+    #####:   21:        if(temp[0]<'a'||temp[0]>'h'||temp[1]<'1'||temp[1]>'8')
+    %%%%%:   21-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   21-block  1
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   21-block  2
+branch  4 never executed
+branch  5 never executed
+    %%%%%:   21-block  3
+branch  6 never executed
+branch  7 never executed
+    #####:   22:            continue;
+    %%%%%:   22-block  0
+    #####:   23:        string str(temp);
+    %%%%%:   23-block  0
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    $$$$$:   23-block  1
+    #####:   24:        this->Original->next[i]=new Node(temp);  //b4 --> d5
+call    0 never executed
+call    1 never executed
+branch  2 never executed
+branch  3 never executed
+    %%%%%:   24-block  0
+call    4 never executed
+branch  5 never executed
+branch  6 never executed
+    %%%%%:   24-block  1
+call    7 never executed
+branch  8 never executed
+branch  9 never executed
+    %%%%%:   24-block  2
+call   10 never executed
+call   11 never executed
+    $$$$$:   24-block  3
+call   12 never executed
+    $$$$$:   24-block  4
+call   13 never executed
+    $$$$$:   24-block  5
+    $$$$$:   24-block  6
+call   14 never executed
+    $$$$$:   24-block  7
+    #####:   25:    }// b4 c6 NULL f7 NULL
+call    0 never executed
+    $$$$$:   25-block  0
+call    1 never executed
+    #####:   26:    for(int i=0;i<8;i++){
+    %%%%%:   26-block  0
+    %%%%%:   26-block  1
+    %%%%%:   26-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:   27:        bool escape=true;
+    #####:   28:        for(int k=i;k<8;k++){
+    %%%%%:   28-block  0
+    %%%%%:   28-block  1
+    %%%%%:   28-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:   29:            if(this->Original->next[k]!=NULL) {
+    %%%%%:   29-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   30:                escape = false;
+    #####:   31:                break;
+    %%%%%:   31-block  0
+        -:   32:            }
+        -:   33:        }
+    #####:   34:        if(escape==true)break;
+    %%%%%:   34-block  0
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   34-block  1
+    #####:   35:        while(this->Original->next[i]==NULL){
+    %%%%%:   35-block  0
+    %%%%%:   35-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   36:            for(int j=i;j<7;j++){
+    %%%%%:   36-block  0
+    %%%%%:   36-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   37:                this->Original->next[j] = this->Original->next[j + 1];
+    %%%%%:   37-block  0
+        -:   38:            }
+        -:   39:        }
+        -:   40:    }
+    #####:   41:    for(int i=1;i<8;i++){
+    %%%%%:   41-block  0
+    %%%%%:   41-block  1
+    %%%%%:   41-block  2
+branch  0 never executed
+branch  1 never executed
+    #####:   42:        if(this->Original->next[i]==this->Original->next[i-1]){
+    %%%%%:   42-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   43:            for(int j=i;j<8;j++) {
+    %%%%%:   43-block  0
+    %%%%%:   43-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   44:                this->Original->next[j] = NULL;
+    %%%%%:   44-block  0
+        -:   45:            }
+    #####:   46:            break;
+    %%%%%:   46-block  0
+        -:   47:        }
+        -:   48:    }
+    #####:   49:}
+    %%%%%:   49-block  0
+        -:   50:
+function _ZlsRSoRK10ChessBoard called 0 returned 0% blocks executed 0%
+    #####:   51:ostream &operator<<(ostream &out, const ChessBoard &aTree) {
+    #####:   52:    out<<"Starting Position: "<<aTree.Original<<endl;
+    %%%%%:   52-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+    #####:   53:    out<<"Level 1 Nodes: "<<endl;
+call    0 never executed
+call    1 never executed
+    #####:   54:    for(int i=0;i<8;i++){
+    %%%%%:   54-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   55:        out<<"Node "<<i+1<<"is "<<aTree.Original->next[i]<<endl;
+    %%%%%:   55-block  0
+call    0 never executed
+call    1 never executed
+call    2 never executed
+call    3 never executed
+call    4 never executed
+        -:   56:    }
+    #####:   57:}

@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 #include <list>
+#define B false
+#define W true
 using namespace std;
 const int xMovesK[] = {2, 1,-1,-2,-2,-1, 1, 2};
 const int yMovesK[] = {1, 2, 2, 1,-1,-2,-2,-1};
@@ -19,14 +21,17 @@ class Node{
 public:
    typedef Node* NodePointer;
    bool safe;
+   bool colour;
    string pos;
-   int distanceToTarget;
+   int distanceToTargetK;
+   int distanceToTargetB;
    NodePointer nextK[8];
    NodePointer nextB[13];
    NodePointer nextP[2];
    Node(string name);
    Node();
    void display(ostream & out) const;
+   void getColour();
 };
 ostream & operator<< (ostream & out, const Node & aNode);
 #endif //KNIGHT_PROJ_NODE_H

@@ -13,7 +13,7 @@ public:
     vector<vector<Node>> cb;
     Node* src;
     Node* dest;
-    queue<Node*> path;
+    queue<Node*> pathK,pathB;
     ChessB(string src,string dest);
     bool isValid(char str[],int s=2);//Makes sure position of pieces is valid
     void addNexts();//creates pieces Nodes
@@ -21,9 +21,11 @@ public:
     void addKnight(int i, int j);//creates Knight nodes
     void addBishop(int i, int j);//creates Bishop nodes
     void addPawn(int i, int j);//creates Pawn nodes
-    void addPath(Node* crt,int steps);
-    void choosePath();
-    //void setDistance(Node& req):
-    bool BFS();
+    void addPathK(Node* crt, int steps);
+    void choosePathK();
+    void choosePathB(Node* crt, int steps);
+    bool isReachableB();
+    void addPathB();
+
 };
 #endif
