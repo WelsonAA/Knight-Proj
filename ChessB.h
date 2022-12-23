@@ -23,9 +23,11 @@ public:
     void addPawn(int i, int j);//creates Pawn nodes
     void addPathK(Node* crt, int steps);
     void choosePathK();
-    void choosePathB(Node* crt, int steps);
+    void choosePathB();
     bool isReachableB();
-    void addPathB();
-
+    void addPathB(Node* crt, int steps);
+    void putKnight(string pos);
+    void putPawn(string pos);
+    void putBishop(string pos);
 };
 #endif

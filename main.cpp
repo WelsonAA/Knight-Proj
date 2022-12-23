@@ -27,10 +27,13 @@ struct Node {
     }
 };*/
     int main() {
-        ChessB x("a1", "a2");
+        ChessB x("h1", "a8");
         x.addNexts();
+        //x.putPawn("h4");
         x.addPathK(x.dest, 0);
         x.choosePathK();
+        x.addPathB(x.dest,0);
+
         cout << "Enter a position on the chess board\n";
         string str;
         cin >> str;

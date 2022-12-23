@@ -126,7 +126,7 @@ void ChessB::choosePathK() {
     for(int j=1;((j<=6)&&(tmp!=this->dest));j++){
         min=tmp->nextK[0];
         for (int i = 1; ((i < 8) && (tmp->nextK[i] != NULL)); i++) {
-            if ((tmp->nextK[i]->distanceToTargetK < min->distanceToTargetK))
+            if ((tmp->nextK[i]->distanceToTargetK < min->distanceToTargetK)&&(tmp->safe==true))
                 min = tmp->nextK[i];
         }
         pathK.push(min);
@@ -145,15 +145,7 @@ void ChessB::addPathK(Node* crt, int steps) {
         }
     }
 }
-void ChessB::addPathB() {
-
-}
-
-bool ChessB::isReachableB() {
-    return src->colour==dest->colour;
-}
-
-void ChessB::choosePathB(Node *crt, int steps) {
+void ChessB::addPathB(Node *crt, int steps) {
     if(steps>2)
         return;
     else{
@@ -162,6 +154,31 @@ void ChessB::choosePathB(Node *crt, int steps) {
             addPathK(crt->nextK[i], steps + 1);
         }
     }
+}
+
+bool ChessB::isReachableB() {
+    return src->colour==dest->colour;
+}
+
+void ChessB::choosePathB() {
+
+}
+
+void ChessB::putKnight(string pos) {
+    this->cb[pos[1] - '1'][pos[0] - 'a'].currentPiece=k;
+}
+
+void ChessB::putPawn(string pos) {
+    this->cb[pos[1] - '1'][pos[0] - 'a'].currentPiece=p;
+    for(int i=0;(i<2);i++){
+        if(this->cb[pos[1] - '1'][pos[0] - 'a'].nextP[i]==NULL)
+            continue;
+        this->cb[pos[1] - '1'][pos[0] - 'a'].nextP[i]->safe= false;
+    }
+}
+
+void ChessB::putBishop(string pos) {
+    this->cb[pos[1] - '1'][pos[0] - 'a'].currentPiece=b;
 }
 
 
