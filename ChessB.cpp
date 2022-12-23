@@ -122,11 +122,12 @@ void ChessB::printNode(string str) {
 
 void ChessB::choosePathK() {
     Node* tmp=src;
-    Node* min;
+    Node* min,*crt;
     for(int j=1;((j<=6)&&(tmp!=this->dest));j++){
         min=tmp->nextK[0];
         for (int i = 1; ((i < 8) && (tmp->nextK[i] != NULL)); i++) {
-            if ((tmp->nextK[i]->distanceToTargetK < min->distanceToTargetK)&&(tmp->safe==true))
+            crt=tmp->nextK[i];
+            if ((crt->distanceToTargetK < min->distanceToTargetK)&&(crt->safe==true))
                 min = tmp->nextK[i];
         }
         pathK.push(min);
