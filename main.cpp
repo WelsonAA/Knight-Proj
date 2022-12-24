@@ -1,5 +1,8 @@
 #include <iostream>
 #include "ChessB.h"
+#include <iostream>
+#include <set>
+#include <climits>
 using namespace std;
 /*bool isValid(int x, int y, int N) {
     return (x >= 0 && x < N) && (y >= 0 && y < N);
