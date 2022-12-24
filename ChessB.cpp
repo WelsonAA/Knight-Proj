@@ -69,7 +69,6 @@ void ChessB::addKnight(int i, int j) {
             continue;
         else {
             this->cb[i][j].nextK[y] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
-            //this->cb[temp[1] - '1'][temp[0] - 'a'].distanceToTargetK
             y++;
         }
     }
@@ -87,7 +86,6 @@ void ChessB::addPawn(int i, int j) {
             continue;
         else {
             this->cb[i][j].nextP[k] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
-            this->cb[i][j].nextP[k]->safe=false;
         }
     }
 }
@@ -122,13 +120,15 @@ void ChessB::printNode(string str) {
 
 void ChessB::choosePathK() {
     Node* tmp=src;
-    Node* min,*crt;
+    Node* min=NULL,*crt=NULL;
     for(int j=1;((j<=6)&&(tmp!=this->dest));j++){
-        min=tmp->nextK[0];
-        for (int i = 1; ((i < 8) && (tmp->nextK[i] != NULL)); i++) {
+        for (int i = 0; ((i < 8) && (tmp->nextK[i] != NULL)); i++) {
             crt=tmp->nextK[i];
-            if ((crt->distanceToTargetK < min->distanceToTargetK)&&(crt->safe==true))
-                min = tmp->nextK[i];
+            if((crt->safe==false))continue;
+            if((min ==NULL))
+                min = crt;
+            else if (((crt->distanceToTargetK < min->distanceToTargetK))&&(crt->safe==true))
+                min = crt;
         }
         pathK.push(min);
         tmp=min;

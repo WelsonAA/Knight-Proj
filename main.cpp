@@ -27,18 +27,42 @@ struct Node {
     }
 };*/
     int main() {
-        ChessB x("h1", "a8");
+        ChessB x("a1", "a8");
         x.addNexts();
-        //x.putPawn("h4");
+        x.putPawn("h4");
         x.addPathK(x.dest, 0);
         x.choosePathK();
-        x.addPathB(x.dest,0);
+    if(!x.pathK.empty()){
+        cout<<x.pathK.front()->pos;
+        x.pathK.pop();}
+    if(!x.pathK.empty()){
+        cout<<x.pathK.front()->pos;
+        x.pathK.pop();}
+    if(!x.pathK.empty()){
+        cout<<x.pathK.front()->pos;
+        x.pathK.pop();}
+    if(!x.pathK.empty()){
+        cout<<x.pathK.front()->pos;
+        x.pathK.pop();}
+    if(!x.pathK.empty()){
+        cout<<x.pathK.front()->pos;
+        x.pathK.pop();}
+    if(!x.pathK.empty()){
+        cout<<x.pathK.front()->pos;
+        x.pathK.pop();}
+    if(!x.pathK.empty()){
+        cout<<x.pathK.front()->pos;
+        x.pathK.pop();}
+    if(!x.pathK.empty()){
+        cout<<x.pathK.front()->pos;
+        x.pathK.pop();}}
+        //x.addPathB(x.dest,0);
 
-        cout << "Enter a position on the chess board\n";
-        string str;
-        cin >> str;
-        x.printNode(str);
-    }
+//        cout << "Enter a position on the chess board\n";
+//        string str;
+//        cin >> str;
+//        x.printNode(str);
+//    }
     /*int row[] = {2, 2, -2, -2, 1, 1, -1, -1};
     int col[] = {-1, 1, 1, -1, 2, -2, 2, -2};
 
