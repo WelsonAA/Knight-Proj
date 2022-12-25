@@ -22,7 +22,6 @@ Node::Node(){
 }
 /*
 This function formats the printing of the nodes
-
  */
 void Node::display(ostream &out) const {
     out<<"Node Position: "<<this->pos<<endl;

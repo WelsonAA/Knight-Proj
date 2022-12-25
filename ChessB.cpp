@@ -28,6 +28,7 @@ ChessB::ChessB(string src, string dest)
         cb.push_back(v);
     }
     this->src=&this->cb[src[1] - '1'][src[0] - 'a'];
+    this->src->currentPiece = 'k';
     this->dest=&this->cb[dest[1] - '1'][dest[0] - 'a'];
     this->dest->distanceToTargetK=0;
 }
@@ -38,7 +39,7 @@ ChessB::ChessB(string src, string dest)
  */
 
 bool ChessB::isValid(string str) {
-    if(str[0]<'a'||str[0]>'h'||str[1]<'1'||str[1]>'8'||str.length()!=2)
+    if(str[0]<'a'||str[0]>'h'||str[1]<'1'||str[1]>'8')
         return false;
     else
         return true;
@@ -146,7 +147,7 @@ void ChessB::addPathK(Node* crt, int steps) {
         return;
     else{
         crt->distanceToTargetK=steps;
-        for(int i=0;i<8&&crt->nextK[i]!=NULL;i++){
+        for(int i=0;((i<8)&&(crt->nextK[i]!=NULL));i++){
             addPathK(crt->nextK[i], steps + 1);
         }
     }
