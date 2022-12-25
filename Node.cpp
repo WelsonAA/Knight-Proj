@@ -14,6 +14,9 @@ Node::Node(string name): pos(name), safe(true), distanceToTargetK(-1),distanceTo
         this->nextP[i]=NULL;
     this->getColour();
 }
+
+
+
 Node::Node(){
 
 }

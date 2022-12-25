@@ -14,8 +14,22 @@ public:
     Node* src;
     Node* dest;
     queue<Node*> pathK,pathB;
+//    string du()
+//    {
+//        Node* hi = new Node("a4");
+//        pathK.push(hi);
+//        while(!pathK.empty())
+//        {
+//            Node* temp = pathK.front();
+//            pathK.pop();
+//            return temp->pos;
+
+//        }
+
+//    }
     ChessB(string src,string dest);
-    bool isValid(char str[],int s=2);//Makes sure position of pieces is valid
+    ChessB();
+    bool isValid(string str);//Makes sure position of pieces is valid
     void addNexts();//creates pieces Nodes
     void printNode(string str);
     void addKnight(int i, int j);//creates Knight nodes

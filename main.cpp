@@ -30,6 +30,7 @@ struct Node {
     }
 };*/
     int main() {
+        cout<<(int)('1');
         ChessB x("a1", "a8");
         x.addNexts();
         x.putPawn("h4");
