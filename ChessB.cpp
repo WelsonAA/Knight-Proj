@@ -124,22 +124,7 @@ void ChessB::printNode(string str) {
 
 
 
-void ChessB::choosePathK() {
-    Node* tmp=src;
-    Node* min=NULL,*crt=NULL;
-    for(int j=1;((j<=6)&&(tmp!=this->dest));j++){
-        for (int i = 0; ((i < 8) && (tmp->nextK[i] != NULL)); i++) {
-            crt=tmp->nextK[i];
-            if((crt->safe==false))continue;
-            if((min ==NULL))
-                min = crt;
-            else if (((crt->distanceToTargetK < min->distanceToTargetK))&&(crt->safe==true))
-                min = crt;
-        }
-        pathK.push(min);
-        tmp=min;
-    }
-}
+
 void ChessB::addPathK(Node* crt, int steps) {
     if(steps>6)
         return;
@@ -153,22 +138,69 @@ void ChessB::addPathK(Node* crt, int steps) {
     }
 }
 void ChessB::addPathB(Node *crt, int steps) {
-    if(steps>2)
-        return;
-    else{
-        crt->distanceToTargetB=steps;
-        for(int i=0;i<13&&crt->nextK[i]!=NULL;i++){
-            addPathK(crt->nextK[i], steps + 1);
+    if(isReachableB()) {
+        if (steps > 2)
+            return;
+        else if((crt->distanceToTargetB != -1)&&(steps>=crt->distanceToTargetB))
+            return;
+        else {
+            crt->distanceToTargetB = steps;
+            for (int i = 0; i < 13 && crt->nextB[i] != NULL; i++) {
+                addPathB(crt->nextB[i], steps + 1);
+            }
         }
+    }else{
+        cout<<"Unreachable";
     }
 }
 
 bool ChessB::isReachableB() {
     return src->colour==dest->colour;
 }
+    void ChessB::choosePathK() {
+        Node* tmp=src;
+        Node* min=NULL,*crt=NULL;
+        for(int j=1;((j<=6)&&(tmp!=this->dest));j++){
+            for (int i = 0; ((i < 8) && (tmp->nextK[i] != NULL)); i++) {
+                crt=tmp->nextK[i];
+                //if((crt->safe==false)||(crt->visited==true))
+                if(crt->safe==false)
+                    continue;
+                if((min ==NULL)&&(crt->safe==true))
+                    min = crt;
+                else if (((crt->distanceToTargetK < min->distanceToTargetK))&&(crt->safe==true))
+                    min = crt;
+            }
 
+            }
+
+            if(min==NULL){
+                pathK.push(tmp);
+                tmp->visited=-true;
+            }else {
+                pathK.push(min);
+                min->visited = true;
+                tmp = min;
+            }
+        }
+    }
 void ChessB::choosePathB() {
-
+    Node* tmp=src;
+    Node* min=NULL,*crt=NULL;
+    for(int j=1;((j<=6)&&(tmp!=this->dest));j++){
+        for (int i = 0; ((i < 13) && (tmp->nextB[i] != NULL)); i++) {
+            crt=tmp->nextB[i];
+            if((crt->safe==false))
+                continue;
+            if((min ==NULL)&&(crt->safe==true))
+                min = crt;
+            else if (((crt->distanceToTargetB < min->distanceToTargetB))&&(crt->safe==true))
+                min = crt;
+        }
+        pathB.push(min);
+        min->visited=true;
+        tmp=min;
+    }
 }
 
 void ChessB::putKnight(string pos) {

@@ -23,6 +23,7 @@ class Node{
 public:
     typedef Node* NodePointer;
     bool safe;
+    bool visited;
     bool colour;
     string pos;
     char currentPiece;
