@@ -183,7 +183,7 @@ bool ChessB::isReachableB() {
                 tmp = min;
             }
         }
-    }
+
 void ChessB::choosePathB() {
     Node* tmp=src;
     Node* min=NULL,*crt=NULL;
