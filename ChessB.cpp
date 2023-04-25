@@ -72,6 +72,7 @@ void ChessB::addKnight(int i, int j) {
             continue;
         else {
             this->cb[i][j].nextK[y] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
+            this->cb[i][j].deg++;
             y++;
         }
     }
@@ -109,18 +110,15 @@ void ChessB::addKnight(int i, int j) {
 void ChessB::choosePathK() {
     Node* tmp= nullptr;
     for(int i=0;i<64;i++){
-        for(int j=0;j<8;j++){
-            tmp = this->current->nextK[j];
-            if (tmp == nullptr)
-                break;
-            else if (tmp->visited == true)
-                continue;
-            else {
-                this->current = tmp;
-                this->current->visited = true;
-                this->pathK.push(tmp);
-                break;
-            }
+        tmp = this->current->getLowestNext();
+        if (tmp == nullptr)
+            break;
+        else if (tmp->visited == true)
+            continue;
+        else {
+            this->current = tmp;
+            this->current->visit();
+            this->pathK.push(tmp);
         }
     }
 }

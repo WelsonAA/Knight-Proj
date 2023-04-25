@@ -18,12 +18,13 @@ public:
     typedef Node* NodePointer;
     bool visited;
     string pos;
-    //int distanceToTargetK;
+    int deg;
     NodePointer nextK[8];
     Node(string name);
     Node();
     void display(ostream & out) const;
-
+    void visit();
+    Node* getLowestNext();
 
 };
 ostream & operator<< (ostream & out, const Node & aNode);
