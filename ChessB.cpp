@@ -87,26 +87,6 @@ void ChessB::addKnight(int i, int j) {
  it's implemented using the xMovesB and yMovesB which is the positions the bishop can move to
  */
 
-
-
-
-
-
-
-
-//void ChessB::addPathK(Node *crt, int steps) {
-//    if (steps > 6)
-//        return;
-//    else if ((crt->distanceToTargetK < steps) && (crt->distanceToTargetK != -1))
-//        return;
-//    else {
-//        crt->distanceToTargetK = steps;
-//        for (int i = 0; ((i < 8) && (crt->nextK[i] != nullptr)); i++) {
-//            addPathK(crt->nextK[i], steps + 1);
-//        }
-//    }
-//}
-
 void ChessB::choosePathK() {
     Node* tmp= nullptr;
     for(int i=0;i<64;i++){

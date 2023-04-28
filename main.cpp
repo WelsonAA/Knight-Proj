@@ -2,7 +2,7 @@
 #include "ChessB.h"
 using namespace std;
 int main() {
-    ChessB x("h1");
+    ChessB x("d4");
     x.addNexts();
     x.choosePathK();
     cout<<x.pathK.size();
