@@ -9,15 +9,17 @@
 #include <string>
 #include <list>
 using namespace std;
-const int xMovesK[] = {2, 1,-1,-2,-2,-1, 1, 2};
-const int yMovesK[] = {1, 2, 2, 1,-1,-2,-2,-1};
-
+const int xMovesK[] = {2,2, 1,-1,-2,-2,-1, 1};
+const int yMovesK[] = {1,-1, 2, 2, 1,-1,-2,-2};
+#include <cstring>
 
 class Node{
 public:
     typedef Node* NodePointer;
     bool visited;
-    string pos;
+    bool corner;
+    bool edge;
+    const string pos;
     int deg;
     NodePointer nextK[8];
     Node(string name);
