@@ -8,10 +8,11 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <cstring>
 using namespace std;
 const int xMovesK[] = {2,2, 1,-1,-2,-2,-1, 1};
 const int yMovesK[] = {1,-1, 2, 2, 1,-1,-2,-2};
-#include <cstring>
+
 
 class Node{
 public:

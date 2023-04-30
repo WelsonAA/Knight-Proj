@@ -41,9 +41,7 @@ Node* Node::getLowestNext() {
         else if((tmp->corner==true)&& (tmp->visited != true)){
             return tmp;
         }
-        else if((tmp->edge==true)&& (tmp->visited != true))
-            return tmp;
-        if ((tmp->deg < min) && (tmp->visited != true)) {
+        if (((tmp->deg < min) && (tmp->visited != true))||((tmp->edge==true)&& (tmp->visited != true))) {
             min = tmp->deg;
             lowestNext = tmp;
         }
