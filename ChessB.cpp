@@ -24,10 +24,15 @@ ChessB::ChessB(string src)
         }
         cb.push_back(v);
     }
+    for(int i=0;i<64;i++){
+        this->pathK[i]=NULL;
+    }
+    cnt=0;
     this->src=&this->cb[src[1] - '1'][src[0] - 'a'];
     this->src->visited=true;
     this->current=this->src;
-    this->pathK.push(this->current);
+    this->pathK[cnt]=this->current;
+    cnt++;
 }
 
 
@@ -98,7 +103,8 @@ void ChessB::choosePathK() {
         else {
             this->current = tmp;
             this->current->visit();
-            this->pathK.push(tmp);
+            this->pathK[cnt]=tmp;
+            cnt++;
         }
     }
 }

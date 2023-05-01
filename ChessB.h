@@ -13,7 +13,8 @@ public:
     vector<vector<Node>> cb;
     Node* src;
     Node* current;
-    queue<Node*> pathK;
+    Node* pathK[64];
+    int cnt;
     ChessB(string src);
     bool isValid(string str);//Makes sure position of pieces is valid
     void addNexts();//creates pieces Nodes
