@@ -78,7 +78,7 @@ void ChessB::addKnight(int i, int j) {
         temp[0] = this->cb[i][j].pos[0] + xMovesK[k];
         temp[1] = this->cb[i][j].pos[1] + yMovesK[k];
         if (!(isValid(temp)))
-            continue;
+            this->cb[i][j].nextK[y]=NULL;
         else {
             this->cb[i][j].nextK[y] = &this->cb[temp[1] - '1'][temp[0] - 'a'];
             this->cb[i][j].deg++;

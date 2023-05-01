@@ -45,15 +45,19 @@ Node* Node::getLowestNext() {
     int min_deg=9;
     int min_deg_idx=-1;
     int start=rand()%8;
-    for(int count = 0; count < this->deg; ++count){
+    for(int count = 0; count < 8; ++count){
 
-        int i = (start + count)%this->deg;
-        if(this->nextK[i]->corner==true&&this->nextK[i]->visited==false){
-            return this->nextK[i];
-        }
-        if(this->nextK[i]->deg<min_deg&&this->nextK[i]->visited==false){
-            min_deg=this->nextK[i]->deg;
-            min_deg_idx=i;
+        int i = (start + count)%8;
+        if(this->nextK[i]==NULL)
+            continue;
+        if(this->nextK[i]->visited == false){
+            if (this->nextK[i]->corner == true) {
+                return this->nextK[i];
+            }
+            if (this->nextK[i]->deg < min_deg) {
+                min_deg = this->nextK[i]->deg;
+                min_deg_idx = i;
+            }
         }
     }
     if(min_deg_idx==-1){
@@ -87,7 +91,7 @@ void Node::visit() {
     Node* tmp= this->nextK[0];
     int i;
     for(i=0;(tmp!= NULL)&&(i<8);i++){
-        //tmp->deg--;
+        tmp->deg--;
         tmp=this->nextK[i+1];
     }
 }
@@ -111,7 +115,9 @@ void Node::display(ostream &out) const {
 }
 
 bool Node::isNeighbour(Node *n) {
-    for(int i=0;i<this->deg;i++){
+    for(int i=0;i<8;i++){
+        if(this->nextK[i]==NULL)
+            break;
         if(n->pos==this->nextK[i]->pos)
             return true;
     }
