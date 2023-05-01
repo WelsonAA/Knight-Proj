@@ -2,6 +2,8 @@
 // Created by George Welson on 28-Nov-22.
 //
 #include "Node.h"
+
+#include <cstdlib>
 /*
  this function initialize the nexts pointers of the node to null
  */
@@ -21,40 +23,71 @@ int check_substring(string str1, string str2)
 
     return -1;
 }
-Node::Node(string name): pos(name), visited(false),deg(0),corner(false),edge(false){
+int min(int a,int b,int c,int d){
+    return min(min(min(a,b),c),d);
+}
+Node::Node(string name): pos(name), visited(false),deg(0),corner(false),edge(false),distToEdge(100){
     for(int i=0;i<8;i++)
         this->nextK[i]=NULL;
-    if(this->pos=="a1"||this->pos=="a8"||this->pos=="h1"||this->pos=="h8")
-        this->corner=true;
-    if(check_substring("a",(this->pos))!=-1||check_substring("h",(this->pos))!=-1||check_substring("1",(this->pos))!=-1||check_substring("8",(this->pos))!=-1)
-        this->edge=true;
+    if(this->pos=="a1"||this->pos=="a8"||this->pos=="h1"||this->pos=="h8") {
+        this->corner = true;
+        this->distToEdge=0;
+    }
+    if(check_substring("a",(this->pos))!=-1||check_substring("h",(this->pos))!=-1||check_substring("1",(this->pos))!=-1||check_substring("8",(this->pos))!=-1) {
+        this->edge = true;
+        this->distToEdge=0;
+    }
+    if(this->distToEdge==100){
+        this->distToEdge= min(abs(((char)this->pos[0])-'a'),abs(((char)this->pos[0])-'h'),abs(((char)this->pos[1])-'1'),abs(((char)this->pos[1])-'8'));
+    }
 }
 Node* Node::getLowestNext() {
-    int min =10;
+    int min_deg=9;
+    int min_deg_idx=-1;
+    int start=rand()%8;
+    for(int count = 0; count < this->deg; ++count){
+
+        int i = (start + count)%this->deg;
+        if(this->nextK[i]->corner==true&&this->nextK[i]->visited==false){
+            return this->nextK[i];
+        }
+        if(this->nextK[i]->deg<min_deg&&this->nextK[i]->visited==false){
+            min_deg=this->nextK[i]->deg;
+            min_deg_idx=i;
+        }
+    }
+    if(min_deg_idx==-1){
+        return NULL;
+    }
+    return this->nextK[min_deg_idx];
+
+    /*int min =10;
     Node* lowestNext=NULL;
     Node* tmp= NULL;
     int i;
     for(i=0;i<8;i++){
         tmp=this->nextK[i];
         if(tmp == NULL)
-            continue;
+            break;
         else if((tmp->corner==true)&& (tmp->visited != true)){
             return tmp;
         }
-        if (((tmp->deg < min) && (tmp->visited != true))||((tmp->edge==true)&& (tmp->visited != true))) {
-            min = tmp->deg;
-            lowestNext = tmp;
+        if(tmp->visited != true) {
+            if (tmp->deg < min|| tmp->edge == true) {
+                min = tmp->deg;
+                lowestNext = tmp;
+            }
         }
     }
 
-    return lowestNext;
+    return lowestNext;*/
 }
 void Node::visit() {
     this->visited=true;
     Node* tmp= this->nextK[0];
     int i;
     for(i=0;(tmp!= NULL)&&(i<8);i++){
-        tmp->deg--;
+        //tmp->deg--;
         tmp=this->nextK[i+1];
     }
 }
@@ -75,6 +108,14 @@ void Node::display(ostream &out) const {
         else
             out << this->nextK[i]->pos << endl;
     }
+}
+
+bool Node::isNeighbour(Node *n) {
+    for(int i=0;i<this->deg;i++){
+        if(n->pos==this->nextK[i]->pos)
+            return true;
+    }
+    return false;
 }
 
 

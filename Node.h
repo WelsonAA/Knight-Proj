@@ -9,9 +9,10 @@
 #include <string>
 #include <list>
 #include <cstring>
+#include <math.h>
 using namespace std;
-const int xMovesK[] = {2,2, 1,-1,-2,-2,-1, 1};
-const int yMovesK[] = {1,-1, 2, 2, 1,-1,-2,-2};
+const int xMovesK[] = {1, 1, 2, 2, -1, -1, -2, -2};
+const int yMovesK[] = {2, -2, 1, -1, 2, -2, 1, -1};
 
 
 class Node{
@@ -21,6 +22,7 @@ public:
     bool corner;
     bool edge;
     const string pos;
+    int distToEdge;
     int deg;
     NodePointer nextK[8];
     Node(string name);
@@ -28,7 +30,7 @@ public:
     void display(ostream & out) const;
     void visit();
     Node* getLowestNext();
-
+    bool isNeighbour(Node* n);
 };
 ostream & operator<< (ostream & out, const Node & aNode);
 #endif //KNIGHT_PROJ_NODE_H
