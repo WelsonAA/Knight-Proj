@@ -17,11 +17,7 @@ public:
     ChessB(string src);
     bool isValid(string str);//Makes sure position of pieces is valid
     void addNexts();//creates pieces Nodes
-    void printNode(string str);
-    void reset();
     void addKnight(int i, int j);//creates Knight nodes
-    void resetDeg();
-    void addPathK(Node* crt, int steps);
     void choosePathK();
 };
 #endif

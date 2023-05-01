@@ -20,9 +20,7 @@ public:
     typedef Node* NodePointer;
     bool visited;
     bool corner;
-    bool edge;
     const string pos;
-    int distToEdge;
     int deg;
     NodePointer nextK[8];
     Node(string name);

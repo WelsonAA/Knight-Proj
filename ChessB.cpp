@@ -30,17 +30,7 @@ ChessB::ChessB(string src)
     this->pathK.push(this->current);
 }
 
-void ChessB::reset(){
-    while(pathK.empty()!=true)pathK.pop();
-    pathK.push(this->src);
-    this->current=this->src;
-    for(int i=0;i<8;i++){
-        for(int j=0;j<8;j++){
-            this->cb[i][j].visited=false;
-        }
-    }
-    this->resetDeg();
-}
+
 /*
  4-This function is implemented to avoid the chess pieces used (knight, pawn, bishop) to go
  out of the chess board (A chess piece can't go beyond A & H, and 1 & 8)
@@ -86,21 +76,7 @@ void ChessB::addKnight(int i, int j) {
         }
     }
 }
-void ChessB::resetDeg() {
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            int c=0;
-            for (int k = 0; k < 8; k++){
-                if(this->cb[i][j].nextK[k]==NULL){
-                    break;
-                }else{
-                    c++;
-                }
-                this->cb[i][j].deg=c;
-            }
-        }
-    }
-}
+
 /*
  addPawn is a function used to create the nodes available for the pawn to move to
  it's implemented using the xMovesP and yMovesP which is the positions the pawn can move to
