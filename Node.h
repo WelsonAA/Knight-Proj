@@ -8,36 +8,27 @@
 #include <iostream>
 #include <string>
 #include <list>
-const bool B=false;
-const bool W=true;
-
+#include <cstring>
+#include <math.h>
 using namespace std;
-const int xMovesK[] = {2, 1,-1,-2,-2,-1, 1, 2};
-const int yMovesK[] = {1, 2, 2, 1,-1,-2,-2,-1};
-const int xMovesB[] = {1,2,3,4,5,6,7,-1,-2,-3,-4,-5,-6,-7, 1, 2, 3, 4, 5, 6, 7,-1,-2,-3,-4,-5,-6,-7};
-const int yMovesB[] = {1,2,3,4,5,6,7,-1,-2,-3,-4,-5,-6,-7,-1,-2,-3,-4,-5,-6,-7, 1, 2, 3, 4, 5, 6, 7};
-const int xMovesP[] = {-1, 1};
-const int yMovesP[] = {-1,-1};
+const int xMovesK[] = {1, 1, 2, 2, -1, -1, -2, -2};
+const int yMovesK[] = {2, -2, 1, -1, 2, -2, 1, -1};
+
 
 class Node{
 public:
     typedef Node* NodePointer;
-    bool safe;
     bool visited;
-    bool colour;
-    string pos;
-    char currentPiece;
-    int distanceToTargetK;
-    int distanceToTargetB;
+    bool corner;
+    const string pos;
+    int deg;
     NodePointer nextK[8];
-    NodePointer nextB[13];
-    NodePointer nextP[2];
     Node(string name);
     Node();
     void display(ostream & out) const;
-    void getColour();
-
-
+    void visit();
+    Node* getLowestNext();
+    bool isNeighbour(Node* n);
 };
 ostream & operator<< (ostream & out, const Node & aNode);
 #endif //KNIGHT_PROJ_NODE_H

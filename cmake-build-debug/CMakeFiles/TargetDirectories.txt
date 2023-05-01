@@ -1,3 +1,3 @@
-E:/ASU5/Knight_Proj/cmake-build-debug/CMakeFiles/Knight_Proj.dir
-E:/ASU5/Knight_Proj/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/ASU5/Knight_Proj/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+E:/ASU5/Knight-Proj/cmake-build-debug/CMakeFiles/Knight_Proj.dir
+E:/ASU5/Knight-Proj/cmake-build-debug/CMakeFiles/edit_cache.dir
+E:/ASU5/Knight-Proj/cmake-build-debug/CMakeFiles/rebuild_cache.dir

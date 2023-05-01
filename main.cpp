@@ -1,18 +1,19 @@
 #include <iostream>
 #include "ChessB.h"
-#include <iostream>
-#include <set>
-#include <climits>
+#include <time.h>
 using namespace std;
 int main() {
-    ChessB x("a1", "c7");
-    x.addNexts();
-    x.putPawn("h4");
-    x.addPathB(x.dest, 0);
-    x.choosePathK();
-    x.choosePathB();
-    while(!x.pathK.empty()){
-        cout<<x.pathK.front()->pos;
-        x.pathK.pop();
+    srand(time(NULL));
+    while(true){
+        ChessB x("f2");
+        x.addNexts();
+        x.choosePathK();
+        cout << x.cnt << endl;
+        if (x.cnt == 64  && x.pathK[0]->isNeighbour(x.pathK[63]) == true) {
+            for(int i=0;i<64;i++){
+                cout<<x.pathK[i]->pos<<endl;
+            }
+            break;
+        }
     }
 }
