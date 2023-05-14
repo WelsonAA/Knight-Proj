@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ChessB.h"
 #include <time.h>
+#include "Constant.h"
 using namespace std;
 int main() {
     srand(time(NULL));
@@ -9,8 +10,8 @@ int main() {
         x.addNexts();
         x.choosePathK();
         cout << x.cnt << endl;
-        if (x.cnt == 64  && x.pathK[0]->isNeighbour(x.pathK[63]) == true) {
-            for(int i=0;i<64;i++){
+        if (x.cnt == N*N  && x.pathK[0]->isNeighbour(x.pathK[N*N-1]) == true) {
+            for(int i=0;i<N*N;i++){
                 cout<<x.pathK[i]->pos<<endl;
             }
             break;

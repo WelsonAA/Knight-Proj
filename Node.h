@@ -10,6 +10,7 @@
 #include <list>
 #include <cstring>
 #include <math.h>
+#include "Constant.h"
 using namespace std;
 const int xMovesK[] = {1, 1, 2, 2, -1, -1, -2, -2};
 const int yMovesK[] = {2, -2, 1, -1, 2, -2, 1, -1};

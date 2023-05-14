@@ -6,6 +6,7 @@
 #define KNIGHT_PROJ_CHESSB_H
 #include <vector>
 #include "Node.h"
+#include "Constant.h"
 #include <queue>
 using namespace std;
 class ChessB{
@@ -13,7 +14,7 @@ public:
     vector<vector<Node>> cb;
     Node* src;
     Node* current;
-    Node* pathK[64];
+    Node* pathK[N*N];
     int cnt;
     ChessB(string src);
     bool isValid(string str);//Makes sure position of pieces is valid

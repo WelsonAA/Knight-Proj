@@ -14,9 +14,9 @@
 ChessB::ChessB(string src)
 {
     string temp="a1";
-    for(int i= 0; i<8;i++){
+    for(int i= 0; i<N;i++){
         vector<Node>v;
-        for(int j=0;j<8;j++){
+        for(int j=0;j<N;j++){
             temp[1] = '1'+i;
             temp[0] = 'a'+j;
             Node k(temp);
@@ -24,7 +24,7 @@ ChessB::ChessB(string src)
         }
         cb.push_back(v);
     }
-    for(int i=0;i<64;i++){
+    for(int i=0;i<N*N;i++){
         this->pathK[i]=NULL;
     }
     cnt=0;
@@ -54,8 +54,8 @@ bool ChessB::isValid(string str) {
 */
 
 void ChessB::addNexts() {
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
             addKnight(i, j);
         }
     }
@@ -68,7 +68,7 @@ void ChessB::addNexts() {
  */
 void ChessB::addKnight(int i, int j) {
     int y = 0;
-    for (int k = 0; k < 8; k++) {
+    for (int k = 0; k < N; k++) {
         char temp[2];
         temp[0] = this->cb[i][j].pos[0] + xMovesK[k];
         temp[1] = this->cb[i][j].pos[1] + yMovesK[k];
@@ -94,7 +94,7 @@ void ChessB::addKnight(int i, int j) {
 
 void ChessB::choosePathK() {
     Node* tmp= nullptr;
-    for(int i=0;i<63;i++){
+    for(int i=0;i<N*N-1;i++){
         tmp = this->current->getLowestNext();
         if (tmp == nullptr)
             break;
