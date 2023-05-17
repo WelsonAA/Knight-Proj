@@ -124,7 +124,7 @@ call    1 never executed
         -:  106:                    Distance[xCoordinate][yCoordinate] = Distance[curr_x][curr_y] + 1;
         -:  107:
         -:  108:                    BoardVisited[xCoordinate][yCoordinate] = 1;
-        -:  109:                    q.push({ xCoordinate, yCoordinate });
+        -:  109:                    q.push_back({ xCoordinate, yCoordinate });
         -:  110:
         -:  111:                    double distanceFromDestination = calculateDistances(xCoordinate, TargetPos[0], yCoordinate, TargetPos[1]);
         -:  112:                    if (distanceFromDestination < path_dist)

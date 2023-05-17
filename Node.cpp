@@ -3,13 +3,12 @@
 //
 #include "Node.h"
 
-#include <cstdlib>
 /*
  this function initialize the nexts pointers of the node to null
  */
 
 
-Node::Node(string name): pos(name), visited(false),deg(0),corner(false){
+Node::Node(string name): pos(name), visited(false),deg(0),corner(false), trav(0){
     for(int i=0;i<8;i++)
         this->nextK[i]=NULL;
     if(this->pos=="a1"||this->pos=="a8"||this->pos=="h1"||this->pos=="h8") {
@@ -52,7 +51,21 @@ void Node::visit() {
     }
 }
 
-
+// Copy assignment operator
+Node& Node::operator=(const Node& other)  {
+    if (this != &other) {
+        // Perform deep copy of data
+    this->pos=other.pos;
+    this->deg=other.deg;
+    this->visited=other.visited;
+    this->corner=other.corner;
+    this->trav=other.trav;
+    for(int i=0;i<8;i++){
+        this->nextK[i]=other.nextK[i];
+    }
+    }
+    return *this;
+}
 Node::Node(){
 
 }
@@ -78,6 +91,10 @@ bool Node::isNeighbour(Node *n) {
             return true;
     }
     return false;
+}
+
+Node::Node(int x, int y) {
+    if(x<N && y<N && x>-1 && y>-1){}
 }
 
 

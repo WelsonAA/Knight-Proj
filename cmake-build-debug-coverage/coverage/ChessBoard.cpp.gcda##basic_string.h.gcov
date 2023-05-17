@@ -7043,7 +7043,7 @@ call    0 returned 1024
         -: 6952:  {
         -: 6953:  inline namespace string_literals
         -: 6954:  {
-        -: 6955:#pragma GCC diagnostic push
+        -: 6955:#pragma GCC diagnostic push_back
         -: 6956:#pragma GCC diagnostic ignored "-Wliteral-suffix"
         -: 6957:    _GLIBCXX_DEFAULT_ABI_TAG
         -: 6958:    inline basic_string<char>

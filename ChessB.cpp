@@ -15,14 +15,12 @@ ChessB::ChessB(string src)
 {
     string temp="a1";
     for(int i= 0; i<N;i++){
-        vector<Node>v;
         for(int j=0;j<N;j++){
             temp[1] = '1'+i;
             temp[0] = 'a'+j;
             Node k(temp);
-            v.push_back(k);
+            cb[i][j]=k;
         }
-        cb.push_back(v);
     }
     for(int i=0;i<N*N;i++){
         this->pathK[i]=NULL;
@@ -41,12 +39,7 @@ ChessB::ChessB(string src)
  out of the chess board (A chess piece can't go beyond A & H, and 1 & 8)
  */
 
-bool ChessB::isValid(string str) {
-    if(str[0]<'a'||str[0]>'h'||str[1]<'1'||str[1]>'8')
-        return false;
-    else
-        return true;
-}
+
 
 /*
  5-This function is used to create the nodes available for the chess pieces used (knight, pawn, bishop)
@@ -92,7 +85,7 @@ void ChessB::addKnight(int i, int j) {
  it's implemented using the xMovesB and yMovesB which is the positions the bishop can move to
  */
 
-void ChessB::choosePathK() {
+void ChessB::choosePathKWarnsdorff() {
     Node* tmp= nullptr;
     for(int i=0;i<N*N-1;i++){
         tmp = this->current->getLowestNext();
@@ -105,6 +98,37 @@ void ChessB::choosePathK() {
             this->current->visit();
             this->pathK[cnt]=tmp;
             cnt++;
+        }
+    }
+}
+void ChessB::choosePathKBacktracking() {
+    Node* tmp= nullptr;
+
+    for(int j=0;j<N*N;j++){
+        //int trial=0;
+        for(int i=0;(i<8);i++) {
+            tmp = this->current->nextK[i];
+            //trial++;
+            if (tmp == nullptr||(tmp->visited == true && i>=7)) {//backtracking
+                this->current->visited= false;
+                cnt-=2;
+                this->current = this->pathK[cnt];
+                i=this->current->trav-1;
+                cnt++;
+                this->pathK[cnt]=NULL;
+                j=cnt-1;
+                continue;
+            }
+            else if (tmp->visited == true)
+                continue;
+            else {
+                this->current->trav=i+1;
+                this->current = tmp;
+                this->current->visited=true;
+                this->pathK[cnt] = tmp;
+                cnt++;
+                break;
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-# Install script for directory: E:/ASU5/Knight_Proj
+# Install script for directory: E:/ASU5/Knight-Proj
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "E:/ASU5/Knight_Proj/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "E:/ASU5/Knight-Proj/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -3079,7 +3079,7 @@
         -: 3075:    is_trivially_copyable<_Tp>::value;
         -: 3076:template <typename _Tp>
         -: 3077:  inline constexpr bool is_standard_layout_v = is_standard_layout<_Tp>::value;
-        -: 3078:#pragma GCC diagnostic push
+        -: 3078:#pragma GCC diagnostic push_back
         -: 3079:#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         -: 3080:template <typename _Tp>
         -: 3081:  _GLIBCXX20_DEPRECATED("use is_standard_layout_v && is_trivial_v instead")

@@ -44,7 +44,7 @@
         -:   40:#include <bits/c++config.h>
         -:   41:#include <bits/exception.h>
         -:   42:
-        -:   43:#pragma GCC visibility push(default)
+        -:   43:#pragma GCC visibility push_back(default)
         -:   44:
         -:   45:extern "C++" {
         -:   46:
