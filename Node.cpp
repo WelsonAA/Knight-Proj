@@ -20,7 +20,7 @@ Node* Node::getLowestNext() {
     int min_deg_idx=-1;
     int start=rand()%8;
     for(int count = 0; count < 8; ++count){
-
+        //int i=count;
         int i = (start + count)%8;
         if(this->nextK[i]==NULL)
             continue;
@@ -38,8 +38,6 @@ Node* Node::getLowestNext() {
         return NULL;
     }
     return this->nextK[min_deg_idx];
-
-
 }
 void Node::visit() {
     this->visited=true;

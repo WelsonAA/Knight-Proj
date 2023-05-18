@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     srand(time(NULL));
     while(true){
-        ChessB x("a1");
+        ChessB x("h5");
         x.addNexts();
         x.choosePathKWarnsdorff();
         cout << x.cnt << endl;

@@ -91,8 +91,6 @@ void ChessB::choosePathKWarnsdorff() {
         tmp = this->current->getLowestNext();
         if (tmp == nullptr)
             break;
-        else if (tmp->visited == true)
-            continue;
         else {
             this->current = tmp;
             this->current->visit();
